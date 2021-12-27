@@ -1,19 +1,21 @@
 body {
   background: black;
-  margin: 0;
+  margin: auto;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #ffffff;
 }
 #container {
-  min-width: 1440px;
+  width: 1440px;
+  box-sizing: border-box;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  border: 1px solid white;
 }
 header,
 main,
 footer {
   flex: 1;
-  border: 1px solid yellow;
-  min-height: 50px;
 }
 main {
   display: flex;
@@ -23,4 +25,57 @@ main > section {
   flex: 1;
   border: 1px solid red;
   height: 50px;
+}
+header {
+  background: url(../pictures/hero-bg.png) no-repeat;
+  background-size: cover;
+  background-origin: border-box;
+}
+.navbar {
+  height: 90px;
+  margin: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+img .logo {
+  flex: 1;
+}
+
+.nav {
+  margin: 0;
+  padding: 0;
+}
+
+.nav > li {
+  list-style-type: none;
+  display: inline;
+  padding-left: 30px;
+}
+.nav li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+}
+.nav li a:hover {
+  color: #bdae82;
+  font-weight: bold;
+}
+.slash::before {
+  content: 'en';
+  padding-right: 8px;
+  font-weight: bold;
+  color: #bdae82;
+  font-size: 20px;
+}
+.slash::after {
+  content: 'ru';
+  padding-left: 8px;
+  font-size: 20px;
+}
+
+.hero {
+  height: 820px;
+  border: 1px solid blue;
 }
