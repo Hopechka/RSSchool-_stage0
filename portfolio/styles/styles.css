@@ -31,6 +31,8 @@ main > section {
   border: 1px solid red;
   height: 50px;
 }
+/* Навбар  */
+
 header {
   background: url(../pictures/hero-bg.png) no-repeat;
   background-size: cover;
@@ -80,7 +82,7 @@ img .logo {
   padding-left: 8px;
   font-size: 20px;
 }
-
+/* Карточка фотографа  */
 .hero {
   height: 820px;
   z-index: 10;
@@ -91,7 +93,7 @@ img .logo {
   margin: 160px 860px 330px 80px;
 }
 
-.hero-name {
+h1 {
   font-family: var(--another-font);
   font-size: 60px;
 }
@@ -111,4 +113,36 @@ img .logo {
 }
 .button-hero:hover {
   color: white;
+}
+
+/* Заголовок с линиями по бокам  */
+
+h2 {
+  font-size: 40px;
+  line-height: 2em;
+  text-align: center;
+  font-family: var(--another-font);
+  color: var(--gold-color);
+}
+h2::before,
+h2::after {
+  content: '';
+  background: var(--gold-color);
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 20%;
+}
+h2::before {
+  right: 10px;
+  margin-left: -50%;
+}
+h2::after {
+  left: 10px;
+  margin-right: -50%;
+}
+
+.skills-cards p {
+  text-align: center;
 }
