@@ -123,6 +123,8 @@ h2 {
   text-align: center;
   font-family: var(--another-font);
   color: var(--gold-color);
+  margin-top: 100px;
+  margin-bottom: 60px;
 }
 h2::before,
 h2::after {
@@ -143,6 +145,20 @@ h2::after {
   margin-right: -50%;
 }
 
+/* Карточки со скилами  */
+.skills-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px;
+}
+.skills-cards {
+  align-self: center;
+  text-align: center;
+}
 .skills-cards p {
   text-align: center;
+  line-height: 2em;
+}
+.skills-cards img {
+  margin-bottom: 30px;
 }
