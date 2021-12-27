@@ -1,0 +1,26 @@
+body {
+  background: black;
+  margin: 0;
+}
+#container {
+  min-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+}
+header,
+main,
+footer {
+  flex: 1;
+  border: 1px solid yellow;
+  min-height: 50px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+main > section {
+  flex: 1;
+  border: 1px solid red;
+  height: 50px;
+}
