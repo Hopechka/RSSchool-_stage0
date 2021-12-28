@@ -28,7 +28,6 @@ main {
 }
 main > section {
   flex: 1;
-  border: 1px solid red;
 }
 /* Навбар  */
 
@@ -271,3 +270,75 @@ h3 {
 .card-price div {
   text-align: center;
 }
+/* Задний фон в contacts section  */
+
+.contacts-wraper {
+  background: url(../pictures/contacts-bg.jpg) no-repeat;
+  background-size: cover;
+  background-origin: border-box;
+  position: relative;
+  width: 1400px;
+  height: 700px;
+  margin-top: 100px;
+}
+
+/* Форма для контактов  */
+
+.contact-header {
+  font-size: 40px;
+  line-height: 2em;
+  font-family: var(--another-font);
+  color: var(--gold-color);
+  margin-bottom: 20px;
+}
+.contacts-block {
+  float: right;
+  margin-right: 20px;
+}
+.comment {
+  /* Это поле в котором все формы */
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Выровнила поля, чтобы текст был слева и ровно */
+.field {
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+input,
+textarea {
+  background: none;
+  color: var(--gold-color);
+  border: 1px solid var(--gold-color);
+  width: 450px;
+  font-size: 20px;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  padding-left: 20px;
+}
+
+input {
+  height: 50px;
+}
+
+textarea {
+  height: 100px;
+}
+::-webkit-input-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+} /* webkit */
+::-moz-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+} /* Firefox 19+ */
+:-moz-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+} /* Firefox 18- */
+:-ms-input-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+} /* IE */
