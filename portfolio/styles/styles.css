@@ -34,7 +34,7 @@ main > section {
 /* Навбар  */
 
 header {
-  background: url(../pictures/hero-bg.png) no-repeat;
+  background: url(../pictures/hero-bg.jpg) no-repeat;
   background-size: cover;
   background-origin: border-box;
   position: relative;
