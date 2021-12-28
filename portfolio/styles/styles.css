@@ -166,7 +166,7 @@ h4 {
   line-height: 2em;
 }
 
-/* Карусельл для секции портфолио  */
+/* Карусель для секции портфолио  */
 
 .carousel ul {
   display: flex;
@@ -193,4 +193,20 @@ h4 {
 .button:hover {
   background: var(--gold-color);
   color: black;
+}
+/* Фотографии портфолио  */
+
+.content-photo {
+  margin: 60px 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content-photo img {
+  width: 32%;
+  padding-bottom: 25px;
+}
+.video h2 {
+  margin-top: 75px;
 }
