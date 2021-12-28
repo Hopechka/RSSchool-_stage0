@@ -1,0 +1,380 @@
+:root {
+  --another-font: 'Merriweather', serif;
+  --gold-color: #bdae82;
+}
+
+body {
+  background: black;
+  margin: auto;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+}
+#container {
+  width: 1440px;
+  box-sizing: border-box;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+header,
+main,
+footer {
+  flex: 1;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+main > section {
+  flex: 1;
+}
+/* Навбар  */
+
+header {
+  background: url(../pictures/hero-bg.jpg) no-repeat;
+  background-size: cover;
+  background-origin: border-box;
+  position: relative;
+}
+.header-wraper {
+  height: 910px;
+}
+.navbar {
+  height: 90px;
+  margin: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+img .logo {
+  flex: 1;
+}
+
+.nav {
+  margin: 0;
+  padding: 0;
+}
+
+.nav > li {
+  list-style-type: none;
+  display: inline;
+  padding-left: 30px;
+}
+.nav li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+}
+.nav li a:hover {
+  color: var(--gold-color);
+  font-weight: bold;
+}
+.slash::before {
+  content: 'en';
+  padding-right: 8px;
+  font-weight: bold;
+  color: var(--gold-color);
+  font-size: 20px;
+}
+.slash::after {
+  content: 'ru';
+  padding-left: 8px;
+  font-size: 20px;
+}
+/* Карточка фотографа  */
+.hero {
+  height: 820px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+.hero-wrap {
+  width: 500px;
+  margin-top: 160px;
+  margin-left: 80px;
+}
+
+h1 {
+  font-family: var(--another-font);
+  font-size: 60px;
+}
+.hero-wrap div p {
+  font-size: 20px;
+  line-height: 2em;
+  padding-right: 30px;
+  margin-bottom: 25px;
+}
+.button-hero {
+  background: var(--gold-color);
+  width: 220px;
+  height: 55px;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 2em;
+  border: none;
+}
+.button-hero:hover {
+  color: white;
+}
+
+/* Заголовок с линиями по бокам  */
+
+h2 {
+  font-size: 40px;
+  line-height: 2em;
+  text-align: center;
+  font-family: var(--another-font);
+  color: var(--gold-color);
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+h2::before,
+h2::after {
+  content: '';
+  background: var(--gold-color);
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 20%;
+}
+h2::before {
+  right: 10px;
+  margin-left: -50%;
+}
+h2::after {
+  left: 10px;
+  margin-right: -50%;
+}
+
+/* Карточки со скилами  */
+.skills-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px;
+}
+.skills-cards {
+  flex: 1;
+  align-self: center;
+  text-align: center;
+}
+.skills-cards p {
+  text-align: center;
+  line-height: 2em;
+}
+.skills-cards img {
+  margin-bottom: 30px;
+}
+h4 {
+  font-size: 20px;
+  line-height: 2em;
+}
+
+/* Карусель для секции портфолио  */
+
+.carousel ul {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.carousel li {
+  display: inline-block;
+}
+.button {
+  width: 220px;
+  height: 55px;
+  margin: 0 5px;
+  color: var(--gold-color);
+  border: 1px solid var(--gold-color);
+  background: black;
+  font-size: 20px;
+  line-height: 2em;
+}
+.button:hover {
+  background: var(--gold-color);
+  color: black;
+}
+/* Фотографии портфолио  */
+
+.content-photo {
+  margin: 60px 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content-photo img {
+  width: 33%;
+  padding-bottom: 25px;
+}
+.video h2 {
+  margin-top: 75px;
+}
+
+/* Фотография видео в video section  */
+
+.video-pic {
+  background: url(../pictures/video-player.jpg) no-repeat;
+  background-size: cover;
+  background-origin: border-box;
+  position: relative;
+  width: 1400px;
+  height: 705px;
+  left: 20px;
+}
+.video-pic img {
+  position: relative;
+  left: 636px;
+  top: 278px;
+}
+
+/* Карточки в price section  */
+
+.price-card-wraper {
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-price {
+  width: 450px;
+  height: 505px;
+  border: 1px solid var(--gold-color);
+}
+
+h3 {
+  font-family: var(--another-font);
+  font-size: 28px;
+  line-height: 2em;
+  text-align: center;
+  margin: 0;
+  margin-top: 43px;
+}
+.card-price p {
+  font-family: var(--another-font);
+  font-size: 24px;
+  line-height: 2em;
+  text-align: center;
+  color: var(--gold-color);
+  margin: 20px 0;
+}
+.card-price ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-bottom: 40px;
+}
+.card-price li {
+  text-align: center;
+  line-height: 2em;
+}
+.card-price div {
+  text-align: center;
+}
+/* Задний фон в contacts section  */
+
+.contacts-wraper {
+  background: url(../pictures/contacts-bg.jpg) no-repeat;
+  background-size: cover;
+  background-origin: border-box;
+  position: relative;
+  height: 700px;
+  margin-top: 100px;
+}
+
+/* Форма для контактов  */
+
+.contact-header {
+  font-size: 40px;
+  line-height: 2em;
+  font-family: var(--another-font);
+  color: var(--gold-color);
+  margin-bottom: 20px;
+}
+.contacts-block {
+  float: right;
+  margin-right: 20px;
+}
+.comment {
+  /* Это поле в котором все формы */
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Выровнила поля, чтобы текст был слева и ровно */
+.field {
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+input,
+textarea {
+  background: none;
+  color: var(--gold-color);
+  border: 1px solid var(--gold-color);
+  width: 450px;
+  font-size: 20px;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  padding-left: 20px;
+}
+
+input {
+  height: 50px;
+}
+
+textarea {
+  height: 100px;
+}
+::-webkit-input-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+} /* webkit */
+::-moz-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+} /* Firefox 19+ */
+:-moz-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+} /* Firefox 18- */
+:-ms-input-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+} /* IE */
+
+/* Подвал (footer)*/
+
+.footer-wraper {
+  margin: 50px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.footer li {
+  display: inline;
+  padding: 0 10px;
+}
+
+.block1,
+.block2 {
+  font-size: 20px;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--gold-color);
+}
