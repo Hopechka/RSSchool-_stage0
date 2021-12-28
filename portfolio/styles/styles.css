@@ -29,7 +29,6 @@ main {
 main > section {
   flex: 1;
   border: 1px solid red;
-  height: 50px;
 }
 /* Навбар  */
 
@@ -165,4 +164,33 @@ h2::after {
 h4 {
   font-size: 20px;
   line-height: 2em;
+}
+
+/* Карусельл для секции портфолио  */
+
+.carousel ul {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.carousel li {
+  display: inline-block;
+}
+.carousel .button {
+  width: 220px;
+  height: 55px;
+  margin: 0 5px;
+  color: var(--gold-color);
+  border: 1px solid var(--gold-color);
+  background: black;
+  font-size: 20px;
+  line-height: 2em;
+}
+.button:hover {
+  background: var(--gold-color);
+  color: black;
 }
