@@ -277,7 +277,6 @@ h3 {
   background-size: cover;
   background-origin: border-box;
   position: relative;
-  width: 1400px;
   height: 700px;
   margin-top: 100px;
 }
@@ -342,3 +341,34 @@ textarea {
   color: var(--gold-color);
   opacity: 1;
 } /* IE */
+
+/* Подвал (footer)*/
+
+.footer-wraper {
+  margin: 50px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.footer li {
+  display: inline;
+  padding: 0 10px;
+}
+
+.block1,
+.block2 {
+  font-size: 20px;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--gold-color);
+}
