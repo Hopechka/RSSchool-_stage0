@@ -4,6 +4,7 @@
 }
 
 body {
+  min-height: 100vh;
   background: black;
   margin: auto;
   font-family: 'Inter', 'Roboto', sans-serif;
@@ -205,12 +206,11 @@ h4 {
   margin: 60px 20px 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 25px;
 }
 
 .content-photo img {
-  width: 33%;
-  padding-bottom: 25px;
+  flex-basis: 32%;
 }
 .video h2 {
   margin-top: 75px;
