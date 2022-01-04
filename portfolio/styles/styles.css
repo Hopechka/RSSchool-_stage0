@@ -156,7 +156,7 @@ h2::after {
   margin: 0 40px;
 }
 .skills-cards {
-  flex: 1;
+  flex-basis: 25%;
   align-self: center;
   text-align: center;
 }
