@@ -7,7 +7,8 @@
 body {
   min-height: 100vh;
   background: black;
-  margin: auto;
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 2em;
@@ -42,11 +43,11 @@ header {
 }
 .header-wraper {
   height: 910px;
+  width: 1400px;
 }
 .navbar {
   height: 90px;
   margin: 0 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -167,6 +168,7 @@ h2::after {
 }
 h4 {
   font-size: var(--font20);
+  line-height: 2em;
 }
 
 /* Карусель для секции портфолио  */
@@ -191,6 +193,7 @@ h4 {
   border: 1px solid var(--gold-color);
   background: black;
   font-size: var(--font20);
+  line-height: 2em;
 }
 .button:hover {
   background: var(--gold-color);
@@ -206,7 +209,7 @@ h4 {
 }
 
 .content-photo img {
-  flex-basis: 32%;
+  flex-basis: 31%;
 }
 .video h2 {
   margin-top: 75px;
@@ -254,6 +257,7 @@ h3 {
 .card-price p {
   font-family: var(--another-font);
   font-size: 24px;
+  line-height: 2em;
   text-align: center;
   color: var(--gold-color);
   margin: 20px 0;
@@ -278,6 +282,7 @@ h3 {
   background-origin: border-box;
   position: relative;
   height: 700px;
+  width: 1400px;
   margin-top: 100px;
 }
 
@@ -285,6 +290,7 @@ h3 {
 
 .contact-header {
   font-size: 40px;
+  line-height: 2em;
   font-family: var(--another-font);
   color: var(--gold-color);
   margin-bottom: 40px;
@@ -386,4 +392,135 @@ textarea {
 /* Активность для всех кнопок(меняют цвет при наведении) */
 svg:hover {
   fill: var(--gold-color);
+}
+
+@media screen and (max-width: 768px) {
+  #container {
+    width: 768px;
+  }
+  .header-wraper {
+    height: 590px;
+    margin: 0 60px;
+  }
+  .hero-wrap {
+    width: 390px;
+    margin-top: 109px;
+    margin-left: 0;
+  }
+  h1 {
+    font-size: 32px;
+    padding: 16px 0;
+    margin: 0;
+  }
+  .hero-wrap div p {
+    line-height: 24px;
+    padding: 0;
+    margin-bottom: 60px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 80px;
+    padding: 22px 0;
+    margin: 58px 0 28px;
+  }
+  h2::before,
+  h2::after {
+    content: '';
+    background: var(--gold-color);
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 20%;
+  }
+  h2::before {
+    margin-left: -30%;
+  }
+  h2::after {
+    margin-right: -30%;
+  }
+  .video h2 {
+    margin-top: 58px;
+  }
+  .video-pic {
+    width: 768px;
+  }
+  .video-pic svg {
+    left: 350px;
+    top: 178px;
+  }
+
+  .carousel ul {
+    flex-wrap: wrap;
+    margin: 0 100px;
+    gap: 5px;
+    padding: 0;
+  }
+  .carousel li {
+    flex-basis: content;
+  }
+  .button {
+    margin: 0;
+  }
+
+  .content-photo {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 60px;
+    justify-content: center;
+    height: 100%;
+    gap: 60px;
+  }
+  .skills-cards {
+    flex-basis: 45%;
+  }
+  .skills-cards p {
+    line-height: 22px;
+  }
+
+  .price-card-wraper {
+    margin: 0 20px;
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .card-price {
+    align-self: center;
+  }
+
+  .contacts-wraper {
+    height: 600px;
+    background-position: top;
+  }
+  .contacts-block {
+    float: none;
+    text-align: center;
+    margin: 0;
+  }
+
+  .contact-header {
+    text-align: center;
+    font-size: 32px;
+    line-height: 2em;
+    padding-top: 60px;
+  }
+  .footer-wraper {
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    gap: 16px;
+  }
+  div.footer-wraper {
+    margin: 28px 0 45px 0;
+  }
 }
