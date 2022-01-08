@@ -324,6 +324,11 @@ textarea {
   padding-left: 20px;
 }
 
+input:focus,
+textarea:focus {
+  box-decoration-break: none;
+}
+
 input {
   height: 50px;
 }
