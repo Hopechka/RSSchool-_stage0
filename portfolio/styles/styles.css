@@ -71,7 +71,6 @@ img .logo {
 }
 .nav li a:hover {
   color: var(--gold-color);
-  font-weight: bold;
 }
 .slash::before {
   content: 'en';
@@ -228,7 +227,7 @@ h4 {
   height: 705px;
   left: 20px;
 }
-.video-pic img {
+.video-pic svg {
   position: relative;
   left: 636px;
   top: 278px;
@@ -383,4 +382,8 @@ textarea {
 
 .footer a:hover {
   color: var(--gold-color);
+}
+
+svg:hover {
+  fill: var(--gold-color);
 }
