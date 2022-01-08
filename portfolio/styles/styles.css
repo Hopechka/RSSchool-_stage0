@@ -51,6 +51,7 @@ header {
 }
 img .logo {
   flex: 1;
+  margin-left: 20px;
 }
 
 .nav {
