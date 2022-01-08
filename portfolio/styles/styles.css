@@ -384,6 +384,7 @@ textarea {
   color: var(--gold-color);
 }
 
+/* Активность для всех кнопок(меняют цвет при наведении) */
 svg:hover {
   fill: var(--gold-color);
 }
