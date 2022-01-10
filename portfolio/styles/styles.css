@@ -5,19 +5,24 @@
 }
 
 body {
+  /* border: 2px solid red; */
+  max-width: 1440px;
+  margin: 0 auto;
   min-height: 100vh;
   background: black;
-  margin: 0;
-  padding: 0;
+  overflow-x: hidden;
+  /* margin: 0;
+  padding: 0; */
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 2em;
   color: #ffffff;
 }
 #container {
-  width: 1440px;
+  /* border: 2px solid green; */
+  width: 100%;
   box-sizing: border-box;
-  margin: auto;
+  /* margin: 0 auto; */
   display: flex;
   flex-direction: column;
 }
@@ -38,12 +43,12 @@ main > section {
 header {
   background: url(../pictures/hero-bg.jpg) no-repeat;
   background-size: cover;
+  background-position: center center;
   background-origin: border-box;
   position: relative;
 }
 .header-wraper {
   height: 910px;
-  width: 1400px;
 }
 .navbar {
   height: 90px;
@@ -205,12 +210,18 @@ h4 {
   margin: 60px 20px 0;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   gap: 25px;
 }
 
-.content-photo img {
-  flex-basis: 31%;
+.content-photo-img {
+  flex-basis: 31.3333%;
+  box-sizing: border-box;
 }
+.content-photo-img img {
+  width: 100%;
+}
+
 .video h2 {
   margin-top: 75px;
 }
@@ -219,17 +230,19 @@ h4 {
 
 .video-pic {
   background: url(../pictures/video-player.jpg) no-repeat;
-  background-size: cover;
+  background-size: auto 100%;
   background-origin: border-box;
+  background-position: center center;
   position: relative;
-  width: 1400px;
   height: 705px;
-  left: 20px;
+  margin: 0 20px;
 }
 .video-pic svg {
   position: relative;
-  left: 636px;
-  top: 278px;
+  left: 45%;
+  top: 45%;
+  width: 18%;
+  height: 18%;
 }
 
 /* Карточки в price section  */
@@ -237,7 +250,7 @@ h4 {
 .price-card-wraper {
   margin: 0 20px;
   display: flex;
-  justify-content: space-between;
+  gap: 25px;
 }
 
 .card-price {
@@ -278,11 +291,12 @@ h3 {
 
 .contacts-wraper {
   background: url(../pictures/contacts-bg.jpg) no-repeat;
+  background-position: center center;
   background-size: cover;
   background-origin: border-box;
   position: relative;
   height: 700px;
-  width: 1400px;
+  /* width: 1400px; */
   margin-top: 100px;
 }
 
@@ -395,12 +409,16 @@ svg:hover {
 }
 
 @media screen and (max-width: 768px) {
-  #container {
-    width: 768px;
+  body {
+    max-width: 768px;
+    overflow-x: none;
   }
   .header-wraper {
     height: 590px;
     margin: 0 60px;
+  }
+  header {
+    background-position: left;
   }
   .hero-wrap {
     width: 390px;
@@ -444,11 +462,12 @@ svg:hover {
     margin-top: 58px;
   }
   .video-pic {
-    width: 768px;
+    height: 418px;
+    margin: 0 60px;
   }
   .video-pic svg {
-    left: 350px;
-    top: 178px;
+    left: 40%;
+    top: 33%;
   }
 
   .carousel ul {
@@ -522,5 +541,21 @@ svg:hover {
   }
   div.footer-wraper {
     margin: 28px 0 45px 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body {
+    max-width: 425px;
+  }
+
+  .hero-wrap {
+    width: 100%;
+    margin-top: 109px;
+    margin-left: 0;
+  }
+
+  header {
+    background-position: center center;
   }
 }
