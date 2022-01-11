@@ -12,3 +12,14 @@ for (let anchor of anchors) {
     });
   });
 }
+
+// Закрывает гамбургер-меню
+const navLinks = document.querySelectorAll('.nav-item');
+navLinks.forEach((el) => el.addEventListener('click', closeMenu));
+nav.addEventListener('click', closeMenu);
+function closeMenu(event) {
+  if (event.target.classList.contains('nav-item')) {
+    // здесь код, удаляющий класс `'open'` у гамбургер-иконки и у меню
+    navLinks.classList.remove('open');
+  }
+}

@@ -50,12 +50,16 @@ header {
 .header-wraper {
   height: 910px;
 }
+input#menu__toggle {
+  display: none;
+}
+
 .navbar {
   height: 90px;
   margin: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 31px;
 }
 img .logo {
   flex: 1;
@@ -64,6 +68,8 @@ img .logo {
 .nav {
   margin: 0;
   padding: 0;
+  flex-grow: 1;
+  text-align: right;
 }
 
 .nav > li {
@@ -420,6 +426,95 @@ svg:hover {
   header {
     background-position: left;
   }
+  div.slash {
+    flex-grow: 1;
+  }
+  .navbar {
+    width: 80%;
+    text-align: right;
+    gap: 0;
+  }
+  /* -------Меню гамбургер------- */
+  #menu__toggle {
+    opacity: 0;
+  }
+  #menu__toggle:checked + .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .nav {
+    right: 0 !important;
+  }
+  .menu__btn {
+    position: fixed;
+    top: 20px;
+    right: 60px;
+    width: 50px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 20px;
+    height: 2px;
+    background-color: white;
+    transition-duration: 0.25s;
+  }
+  .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+  .nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 134px;
+    padding-left: 127px;
+    list-style: none;
+    background-color: black;
+    transition-duration: 0.25s;
+    z-index: 2;
+    /* width: 620px;
+    height: 1024px; */
+  }
+  .nav li a {
+    font-size: 35px;
+    line-height: 73px;
+  }
+  .nav-item {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    transition-duration: 0.25s;
+    text-align: left;
+  }
+  .nav-item a:hover {
+    color: var(--gold-color);
+  }
+
+  /* -------- */
+
   .hero-wrap {
     width: 390px;
     margin-top: 109px;
@@ -557,5 +652,8 @@ svg:hover {
 
   header {
     background-position: center center;
+  }
+  div.slash {
+    display: none;
   }
 }
