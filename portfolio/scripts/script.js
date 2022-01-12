@@ -13,13 +13,51 @@ for (let anchor of anchors) {
   });
 }
 
-// Закрывает гамбургер-меню
-const navLinks = document.querySelectorAll('.nav-item');
-navLinks.forEach((el) => el.addEventListener('click', closeMenu));
-nav.addEventListener('click', closeMenu);
-function closeMenu(event) {
-  if (event.target.classList.contains('nav-item')) {
-    // здесь код, удаляющий класс `'open'` у гамбургер-иконки и у меню
-    navLinks.classList.remove('open');
-  }
+/*const hamburger = document.querySelector('#menu__toggle');
+
+function toggleMenu() {
+  if (hamburger.classList.contains('open')) {
+    hamburger.classList.remove('open');
+  } else hamburger.classList.toggle('open');
 }
+hamburger.addEventListener('click', toggleMenu);
+const navMenu = document.querySelector('#menu-nav');
+// function togglNavMenu() {
+//   navMenu.classList.toggle("close");
+// }
+// navMenu.addEventListener("click", togglNavMenu);
+
+// function togglNavMenuOpen() {
+//   navMenu.classList.remove("close");
+// }
+// navMenu.addEventListener("click", togglNavMenuOpen);
+function closeMenu() {
+  if (navMenu.classList.contains('close')) {
+    navMenu.classList.remove('close');
+  } else navMenu.classList.toggle('close');
+}
+navMenu.addEventListener('click', closeMenu);*/
+
+const hamburger = document.querySelector('#menu__toggle');
+const navMenu = document.querySelector('#menu-nav');
+
+function toggleMenu() {
+  hamburger.classList.add('open');
+}
+hamburger.addEventListener('click', toggleMenu);
+
+function toggleMenuClose() {
+  hamburger.classList.remove('open');
+  //toggleNavMenuOpen();
+}
+
+function toggleNavMenuOpen() {
+  navMenu.classList.remove('close');
+}
+
+function toggleNavMenu() {
+  navMenu.classList.add('close');
+  toggleMenuClose();
+  toggleNavMenuOpen();
+}
+navMenu.addEventListener('click', toggleNavMenu);
