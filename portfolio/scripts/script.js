@@ -13,51 +13,26 @@ for (let anchor of anchors) {
   });
 }
 
-/*const hamburger = document.querySelector('#menu__toggle');
-
-function toggleMenu() {
-  if (hamburger.classList.contains('open')) {
-    hamburger.classList.remove('open');
-  } else hamburger.classList.toggle('open');
-}
-hamburger.addEventListener('click', toggleMenu);
-const navMenu = document.querySelector('#menu-nav');
-// function togglNavMenu() {
-//   navMenu.classList.toggle("close");
-// }
-// navMenu.addEventListener("click", togglNavMenu);
-
-// function togglNavMenuOpen() {
-//   navMenu.classList.remove("close");
-// }
-// navMenu.addEventListener("click", togglNavMenuOpen);
-function closeMenu() {
-  if (navMenu.classList.contains('close')) {
-    navMenu.classList.remove('close');
-  } else navMenu.classList.toggle('close');
-}
-navMenu.addEventListener('click', closeMenu);*/
-
-const hamburger = document.querySelector('#menu__toggle');
+// Добавила активность для гамбургер-меню
+const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('#menu-nav');
 
 function toggleMenu() {
-  hamburger.classList.add('open');
+  hamburger.classList.toggle('open');
+  navMenuClose();
 }
 hamburger.addEventListener('click', toggleMenu);
 
-function toggleMenuClose() {
+function navMenuClose() {
+  navMenu.classList.toggle('close');
+}
+
+function toggleMenClose() {
   hamburger.classList.remove('open');
-  //toggleNavMenuOpen();
 }
 
-function toggleNavMenuOpen() {
+function menuClose() {
   navMenu.classList.remove('close');
+  toggleMenClose();
 }
-
-function toggleNavMenu() {
-  navMenu.classList.add('close');
-  toggleMenuClose();
-  toggleNavMenuOpen();
-}
-navMenu.addEventListener('click', toggleNavMenu);
+navMenu.addEventListener('click', menuClose);
