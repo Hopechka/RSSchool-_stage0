@@ -10,9 +10,7 @@ body {
   margin: 0 auto;
   min-height: 100vh;
   background: black;
-  overflow-x: hidden;
-  /* margin: 0;
-  padding: 0; */
+  /* overflow-x: hidden; */
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 2em;
@@ -125,6 +123,7 @@ h1 {
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: var(--font20);
   border: none;
+  transition: all 0.5s ease-in-out;
 }
 .button-hero:hover {
   color: white;
@@ -205,10 +204,10 @@ h4 {
   background: black;
   font-size: var(--font20);
   line-height: 2em;
+  transition: all 0.5s ease-in-out;
 }
 .button:hover {
-  background: var(--gold-color);
-  color: black;
+  color: white;
 }
 /* Фотографии портфолио  */
 
@@ -412,6 +411,7 @@ textarea {
 /* Активность для всех кнопок(меняют цвет при наведении) */
 svg:hover {
   fill: var(--gold-color);
+  transition: all 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
