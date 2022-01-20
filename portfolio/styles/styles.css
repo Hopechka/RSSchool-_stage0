@@ -54,7 +54,7 @@ input#menu__toggle {
 
 .navbar {
   height: 90px;
-  margin: 0 20px;
+  margin: 0px 0 0 20px;
   display: flex;
   align-items: center;
   gap: 31px;
@@ -83,7 +83,7 @@ img .logo {
 .nav li a:hover {
   color: var(--gold-color);
 }
-.slash::before {
+/* .slash::before {
   content: 'en';
   padding-right: 8px;
   font-weight: bold;
@@ -93,7 +93,34 @@ img .logo {
 .slash::after {
   content: 'ru';
   padding-left: 8px;
+  font-size: var(--font20); 
+}*/
+
+ul.lang-link {
+  margin: 0;
+  padding: 0;
+}
+.lang-link li {
+  list-style-type: none;
+  display: inline;
   font-size: var(--font20);
+}
+.lang-link li:nth-child(2) {
+  padding: 0 8px 0 8px;
+}
+.lang-link li a {
+  text-decoration: none;
+  font-size: var(--font20);
+  /* color: #fff; */
+}
+a.en {
+  color: var(--gold-color);
+}
+a.ru {
+  color: #fff;
+}
+.lang-link li a:hover {
+  color: var(--gold-color);
 }
 /* Карточка фотографа  */
 .hero {
@@ -103,18 +130,19 @@ img .logo {
 }
 .hero-wrap {
   width: 500px;
-  margin-top: 160px;
+  margin-top: 195px;
   margin-left: 80px;
 }
 
 h1 {
   font-family: var(--another-font);
   font-size: 60px;
+  margin-bottom: 60px;
 }
 .hero-wrap div p {
   font-size: var(--font20);
   padding-right: 30px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 .button-hero {
   background: var(--gold-color);
@@ -179,6 +207,7 @@ h2::after {
 h4 {
   font-size: var(--font20);
   line-height: 2em;
+  margin: 12px 0;
 }
 
 /* Карусель для секции портфолио  */
@@ -244,8 +273,8 @@ h4 {
 }
 .video-pic svg {
   position: relative;
-  left: 45%;
-  top: 45%;
+  left: 42%;
+  top: 42%;
   width: 18%;
   height: 18%;
 }
@@ -318,7 +347,6 @@ h3 {
 }
 .contacts-block {
   float: right;
-  margin-right: 20px;
 }
 .comment {
   /* Это поле в котором все формы */
@@ -355,33 +383,34 @@ input {
 
 textarea {
   height: 100px;
-  padding-top: 10px;
+  padding-top: 15px;
+  padding-left: 1px;
 }
 ::-webkit-input-placeholder {
   color: var(--gold-color);
   opacity: 1;
-  padding-left: 20px;
+  padding-left: 15px;
 } /* webkit */
 ::-moz-placeholder {
   color: var(--gold-color);
   opacity: 1;
-  padding-left: 20px;
+  padding-left: 15px;
 } /* Firefox 19+ */
 :-moz-placeholder {
   color: var(--gold-color);
   opacity: 1;
-  padding-left: 20px;
+  padding-left: 15px;
 } /* Firefox 18- */
 :-ms-input-placeholder {
   color: var(--gold-color);
   opacity: 1;
-  padding-left: 20px;
+  padding-left: 15px;
 } /* IE */
 
 /* Подвал (footer)*/
 
 .footer-wraper {
-  margin: 50px 20px;
+  margin: 61px 0 50px 20px;
   display: flex;
   justify-content: space-between;
 }
