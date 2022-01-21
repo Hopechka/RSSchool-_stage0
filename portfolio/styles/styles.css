@@ -5,18 +5,22 @@
 }
 
 body {
+  /* border: 2px solid red; */
+  max-width: 1440px;
+  margin: 0 auto;
   min-height: 100vh;
   background: black;
-  margin: auto;
+  /* overflow-x: hidden; */
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: 18px;
   line-height: 2em;
   color: #ffffff;
 }
 #container {
-  width: 1440px;
+  /* border: 2px solid green; */
+  width: 100%;
   box-sizing: border-box;
-  margin: auto;
+  /* margin: 0 auto; */
   display: flex;
   flex-direction: column;
 }
@@ -37,19 +41,23 @@ main > section {
 header {
   background: url(../pictures/hero-bg.jpg) no-repeat;
   background-size: cover;
+  background-position: center center;
   background-origin: border-box;
   position: relative;
 }
 .header-wraper {
   height: 910px;
 }
+input#menu__toggle {
+  display: none;
+}
+
 .navbar {
   height: 90px;
-  margin: 0 20px;
-
+  margin: 0px 0 0 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 31px;
 }
 img .logo {
   flex: 1;
@@ -58,6 +66,8 @@ img .logo {
 .nav {
   margin: 0;
   padding: 0;
+  flex-grow: 1;
+  text-align: right;
 }
 
 .nav > li {
@@ -73,7 +83,7 @@ img .logo {
 .nav li a:hover {
   color: var(--gold-color);
 }
-.slash::before {
+/* .slash::before {
   content: 'en';
   padding-right: 8px;
   font-weight: bold;
@@ -83,7 +93,33 @@ img .logo {
 .slash::after {
   content: 'ru';
   padding-left: 8px;
+  font-size: var(--font20); 
+}*/
+
+ul.lang-link {
+  margin: 0;
+  padding: 0;
+}
+.lang-link li {
+  list-style-type: none;
+  display: inline;
   font-size: var(--font20);
+}
+.lang-link li:nth-child(2) {
+  padding: 0 8px 0 8px;
+}
+.lang-link li a {
+  text-decoration: none;
+  font-size: var(--font20);
+}
+a.en {
+  color: var(--gold-color);
+}
+a.ru {
+  color: #fff;
+}
+.lang-link li a:hover {
+  color: var(--gold-color);
 }
 /* Карточка фотографа  */
 .hero {
@@ -93,18 +129,19 @@ img .logo {
 }
 .hero-wrap {
   width: 500px;
-  margin-top: 160px;
+  margin-top: 195px;
   margin-left: 80px;
 }
 
 h1 {
   font-family: var(--another-font);
   font-size: 60px;
+  margin-bottom: 60px;
 }
 .hero-wrap div p {
   font-size: var(--font20);
   padding-right: 30px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 .button-hero {
   background: var(--gold-color);
@@ -113,6 +150,7 @@ h1 {
   font-family: 'Inter', 'Roboto', sans-serif;
   font-size: var(--font20);
   border: none;
+  transition: all 0.5s ease-in-out;
 }
 .button-hero:hover {
   color: white;
@@ -167,6 +205,8 @@ h2::after {
 }
 h4 {
   font-size: var(--font20);
+  line-height: 2em;
+  margin: 12px 0;
 }
 
 /* Карусель для секции портфолио  */
@@ -191,10 +231,11 @@ h4 {
   border: 1px solid var(--gold-color);
   background: black;
   font-size: var(--font20);
+  line-height: 2em;
+  transition: all 0.5s ease-in-out;
 }
 .button:hover {
-  background: var(--gold-color);
-  color: black;
+  color: white;
 }
 /* Фотографии портфолио  */
 
@@ -202,12 +243,18 @@ h4 {
   margin: 60px 20px 0;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   gap: 25px;
 }
 
-.content-photo img {
-  flex-basis: 32%;
+.content-photo-img {
+  flex-basis: 31.3333%;
+  box-sizing: border-box;
 }
+.content-photo-img img {
+  width: 100%;
+}
+
 .video h2 {
   margin-top: 75px;
 }
@@ -216,17 +263,19 @@ h4 {
 
 .video-pic {
   background: url(../pictures/video-player.jpg) no-repeat;
-  background-size: cover;
+  background-size: auto 100%;
   background-origin: border-box;
+  background-position: center center;
   position: relative;
-  width: 1400px;
   height: 705px;
-  left: 20px;
+  margin: 0 20px;
 }
 .video-pic svg {
   position: relative;
-  left: 636px;
-  top: 278px;
+  left: 42%;
+  top: 42%;
+  width: 18%;
+  height: 18%;
 }
 
 /* Карточки в price section  */
@@ -234,13 +283,14 @@ h4 {
 .price-card-wraper {
   margin: 0 20px;
   display: flex;
-  justify-content: space-between;
+  gap: 25px;
 }
 
 .card-price {
   width: 450px;
   height: 505px;
   border: 1px solid var(--gold-color);
+  box-sizing: border-box;
 }
 
 h3 {
@@ -254,6 +304,7 @@ h3 {
 .card-price p {
   font-family: var(--another-font);
   font-size: 24px;
+  line-height: 2em;
   text-align: center;
   color: var(--gold-color);
   margin: 20px 0;
@@ -274,10 +325,12 @@ h3 {
 
 .contacts-wraper {
   background: url(../pictures/contacts-bg.jpg) no-repeat;
+  background-position: center center;
   background-size: cover;
   background-origin: border-box;
   position: relative;
   height: 700px;
+  /* width: 1400px; */
   margin-top: 100px;
 }
 
@@ -285,6 +338,7 @@ h3 {
 
 .contact-header {
   font-size: 40px;
+  line-height: 2em;
   font-family: var(--another-font);
   color: var(--gold-color);
   margin-bottom: 40px;
@@ -293,7 +347,6 @@ h3 {
 }
 .contacts-block {
   float: right;
-  margin-right: 20px;
 }
 .comment {
   /* Это поле в котором все формы */
@@ -314,6 +367,7 @@ textarea {
   color: var(--gold-color);
   border: 1px solid var(--gold-color);
   width: 450px;
+  box-sizing: border-box;
   font-size: var(--font20);
   font-family: 'Inter', 'Roboto', sans-serif;
 }
@@ -329,33 +383,34 @@ input {
 
 textarea {
   height: 100px;
-  padding-top: 10px;
+  padding-top: 15px;
+  padding-left: 1px;
 }
 ::-webkit-input-placeholder {
   color: var(--gold-color);
   opacity: 1;
-  padding-left: 20px;
+  padding-left: 15px;
 } /* webkit */
 ::-moz-placeholder {
   color: var(--gold-color);
   opacity: 1;
-  padding-left: 20px;
+  padding-left: 15px;
 } /* Firefox 19+ */
 :-moz-placeholder {
   color: var(--gold-color);
   opacity: 1;
-  padding-left: 20px;
+  padding-left: 15px;
 } /* Firefox 18- */
 :-ms-input-placeholder {
   color: var(--gold-color);
   opacity: 1;
-  padding-left: 20px;
+  padding-left: 15px;
 } /* IE */
 
 /* Подвал (footer)*/
 
 .footer-wraper {
-  margin: 50px 20px;
+  margin: 61px 0 50px 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -386,4 +441,259 @@ textarea {
 /* Активность для всех кнопок(меняют цвет при наведении) */
 svg:hover {
   fill: var(--gold-color);
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  body {
+    max-width: 768px;
+    overflow-x: none;
+  }
+  .header-wraper {
+    height: 590px;
+    margin: 0 60px;
+  }
+  header {
+    background-position: left;
+  }
+  div.lang {
+    flex-grow: 1;
+  }
+  .navbar {
+    width: 88%;
+    text-align: right;
+    gap: 0;
+    margin-left: 0;
+  }
+  /* -------Меню гамбургер------- */
+  .hamburger {
+    position: absolute;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 50px;
+    height: 28px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 3;
+  }
+
+  .line {
+    width: 80%;
+    height: 2px;
+    background: white;
+    margin: 3px 0;
+    z-index: 15;
+    transition: all 0.3s ease-in-out;
+  }
+  .hamburger:hover .line {
+    background: var(--gold-color);
+  }
+
+  .hamburger.open .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.open .line2 {
+    opacity: 0;
+  }
+
+  .hamburger.open .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  #menu-nav.close {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 620px;
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 134px;
+    padding-left: 127px;
+    list-style: none;
+    background-color: black;
+    z-index: 2;
+    overflow-y: auto;
+    transition: 1s all;
+  }
+  #menu-nav {
+    display: none;
+    transition: 1s all;
+  }
+  .nav li a {
+    font-size: 35px;
+    line-height: 73px;
+  }
+  .nav-item {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    transition-duration: 0.25s;
+    text-align: left;
+  }
+  .nav-item a:hover {
+    color: var(--gold-color);
+  }
+
+  /* -------- */
+
+  .hero {
+    max-height: 768px;
+  }
+
+  .hero-wrap {
+    width: 390px;
+    margin-top: 79px;
+    margin-left: 0;
+  }
+
+  h1 {
+    font-size: 32px;
+    padding: 16px 0;
+    margin: 0;
+  }
+  .hero-wrap div p {
+    line-height: 24px;
+    padding: 0;
+    margin-bottom: 60px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 80px;
+    padding: 22px 0;
+    margin: 58px 0 28px;
+  }
+  h2::before,
+  h2::after {
+    content: '';
+    background: var(--gold-color);
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 15%;
+  }
+  h2::before {
+    margin-left: -30%;
+  }
+  h2::after {
+    margin-right: -30%;
+  }
+  .skills-cards img {
+    margin-bottom: 4px;
+  }
+  .video h2 {
+    margin-top: 45px;
+  }
+  .video-pic {
+    height: 418px;
+    margin: 0;
+  }
+  .video-pic svg {
+    left: 41%;
+    top: 41%;
+  }
+
+  .carousel ul {
+    flex-wrap: wrap;
+    margin: 0 100px;
+    gap: 5px;
+    padding: 0;
+  }
+  .carousel li {
+    flex-basis: content;
+  }
+  .button {
+    margin: 0;
+  }
+
+  .content-photo {
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    margin: 60px 0px 0;
+  }
+
+  .skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 60px 65px 60px;
+    justify-content: center;
+    height: 100%;
+    gap: 60px;
+  }
+  .skills-cards {
+    flex-basis: 45%;
+  }
+  .skills-cards p {
+    line-height: 22px;
+  }
+
+  .price-card-wraper {
+    margin: 0 20px;
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .card-price {
+    align-self: center;
+    width: 420px;
+  }
+
+  .contacts-wraper {
+    height: 600px;
+    background-position: top;
+    margin-top: 81px;
+  }
+  .contacts-block {
+    float: none;
+    text-align: center;
+    margin: 0;
+  }
+
+  .contact-header {
+    text-align: center;
+    font-size: 32px;
+    line-height: 2em;
+    padding-top: 60px;
+  }
+  .footer-wraper {
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    gap: 5px;
+  }
+  div.footer-wraper {
+    margin: 21px 0 45px 0;
+  }
+  div.block3 {
+    margin-top: 18px;
+  }
+}
+@media screen and (max-width: 425px) {
+  body {
+    max-width: 425px;
+  }
+
+  .hero-wrap {
+    width: 100%;
+    margin-top: 109px;
+    margin-left: 0;
+  }
+
+  header {
+    background-position: center center;
+  }
+  div.lang {
+    display: none;
+  }
 }
