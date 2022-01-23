@@ -59,3 +59,32 @@ function menuClose() {
   toggleMenClose();
 }
 navMenu.addEventListener('click', menuClose);
+
+// Поменять изображение на другой сезон
+
+const portfolioBtn = document.querySelectorAll('.portfolio-btn');
+const portfolioImages = document.querySelectorAll('.portfolio-image');
+//Зима
+portfolioBtn[0].addEventListener('click', () => {
+  portfolioImages.forEach(
+    (img, index) => (img.src = `pictures/content-photo/winter/${index + 1}.jpg`)
+  );
+});
+//Весна
+portfolioBtn[1].addEventListener('click', () => {
+  portfolioImages.forEach(
+    (img, index) => (img.src = `pictures/content-photo/spring/${index + 1}.jpg`)
+  );
+});
+//Лето
+portfolioBtn[2].addEventListener('click', () => {
+  portfolioImages.forEach(
+    (img, index) => (img.src = `pictures/content-photo/summer/${index + 1}.jpg`)
+  );
+});
+//Осень
+portfolioBtn[3].addEventListener('click', () => {
+  portfolioImages.forEach(
+    (img, index) => (img.src = `pictures/content-photo/autumn/${index + 1}.jpg`)
+  );
+});
