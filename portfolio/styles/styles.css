@@ -237,6 +237,10 @@ h4 {
 .button:hover {
   color: white;
 }
+.portfolio-btn.active {
+  color: #000;
+  background-color: var(--gold-color);
+}
 /* Фотографии портфолио  */
 
 .content-photo {

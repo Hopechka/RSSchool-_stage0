@@ -92,6 +92,8 @@ const portfolioBtns = document.querySelector('.carousel');
 const portfolioImages = document.querySelectorAll('.portfolio-image');
 function changeImage(event) {
   if (event.target.classList.contains('portfolio-btn')) {
+    //event.target.classList.remove('active');
+    //event.target.classList.add('active');
     portfolioImages.forEach(
       (img, index) =>
         (img.src = `pictures/content-photo/${event.target.dataset.season}/${
@@ -113,3 +115,16 @@ function preloadImages() {
   }
 }
 preloadImages();
+
+//Подсветка активной кнопки
+
+function changeBtnColor(event) {
+  const portfolioBtn = document.querySelectorAll('.portfolio-btn');
+  portfolioBtn.forEach((index) => {
+    index.classList.remove('active');
+  });
+  if (event.target.classList.contains('portfolio-btn')) {
+    event.target.classList.add('active');
+  }
+}
+portfolioBtns.addEventListener('click', changeBtnColor);
