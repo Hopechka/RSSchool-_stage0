@@ -54,7 +54,7 @@ input#menu__toggle {
 
 .navbar {
   height: 90px;
-  margin: 0px 0 0 20px;
+  margin: 0 18px 0 20px;
   display: flex;
   align-items: center;
   gap: 31px;
