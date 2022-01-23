@@ -62,7 +62,7 @@ navMenu.addEventListener('click', menuClose);
 
 // Поменять изображение на другой сезон
 
-const portfolioBtn = document.querySelectorAll('.portfolio-btn');
+/*const portfolioBtn = document.querySelectorAll('.portfolio-btn');
 const portfolioImages = document.querySelectorAll('.portfolio-image');
 //Зима
 portfolioBtn[0].addEventListener('click', () => {
@@ -87,4 +87,17 @@ portfolioBtn[3].addEventListener('click', () => {
   portfolioImages.forEach(
     (img, index) => (img.src = `pictures/content-photo/autumn/${index + 1}.jpg`)
   );
-});
+});*/
+const portfolioBtns = document.querySelector('.carousel');
+const portfolioImages = document.querySelectorAll('.portfolio-image');
+function changeImage(event) {
+  if (event.target.classList.contains('portfolio-btn')) {
+    portfolioImages.forEach(
+      (img, index) =>
+        (img.src = `pictures/content-photo/${event.target.dataset.season}/${
+          index + 1
+        }.jpg`)
+    );
+  }
+}
+portfolioBtns.addEventListener('click', changeImage);
