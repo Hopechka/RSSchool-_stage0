@@ -101,3 +101,15 @@ function changeImage(event) {
   }
 }
 portfolioBtns.addEventListener('click', changeImage);
+
+//Кеширование изображений
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
+function preloadImages() {
+  for (let i = 1; i <= 6; i++) {
+    const img = new Image();
+    seasons.forEach((index) => {
+      img.src = `pictures/content-photo/${index}/${i}.jpg`;
+    });
+  }
+}
+preloadImages();
