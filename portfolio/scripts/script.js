@@ -136,12 +136,26 @@ function getTranslate(event) {
   const langTextChang = document.querySelectorAll('[data-i18]');
   if (event.target.classList.contains('en')) {
     langTextChang.forEach((index) => {
-      index.textContent = i18Obj.en[index.dataset.i18];
+      if (index.placeholder) {
+        console.log(index);
+        index.placeholder = i18Obj.en[index.dataset.i18];
+        index.textContent = '';
+        console.log(index);
+      } else {
+        index.textContent = i18Obj.en[index.dataset.i18];
+      }
     });
   }
   if (event.target.classList.contains('ru')) {
     langTextChang.forEach((index) => {
-      index.textContent = i18Obj.ru[index.dataset.i18];
+      if (index.placeholder) {
+        console.log(index);
+        index.placeholder = i18Obj.ru[index.dataset.i18];
+        index.textContent = '';
+        console.log(index);
+      } else {
+        index.textContent = i18Obj.ru[index.dataset.i18];
+      }
     });
   }
 }
