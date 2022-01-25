@@ -710,6 +710,9 @@ svg:hover {
     background-position: center center;
   }
   div.lang {
-    display: none;
+    flex-shrink: 1;
+  }
+  .navbar {
+    text-align: center;
   }
 }
