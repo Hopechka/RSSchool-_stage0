@@ -524,17 +524,17 @@ svg:hover {
     z-index: 2;
     overflow-y: auto;
     transition: 1s all;
-    visibility: visible;
+    /* visibility: visible; */
   }
   #menu-nav {
-    /* display: none; */
-    visibility: hidden;
+    display: none;
+    /* visibility: hidden;
     transition: 1s all;
     position: absolute;
     top: 0;
     right: -300px;
     padding-top: 134px;
-    padding-left: 127px;
+    padding-left: 127px; */
   }
   .nav li a {
     font-size: 35px;
