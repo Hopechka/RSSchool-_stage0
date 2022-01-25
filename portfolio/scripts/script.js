@@ -131,11 +131,11 @@ function changeBtnColor(event) {
 portfolioBtns.addEventListener('click', changeBtnColor);
 
 //Перевод страницы на два языка
-const langChang = document.querySelector('.lang-link');
+const langChange = document.querySelector('.lang-link');
 function getTranslate(event) {
-  const langTextChang = document.querySelectorAll('[data-i18]');
+  const langTextChange = document.querySelectorAll('[data-i18]');
   if (event.target.classList.contains('en')) {
-    langTextChang.forEach((index) => {
+    langTextChange.forEach((index) => {
       if (index.placeholder) {
         index.placeholder = i18Obj.en[index.dataset.i18];
         index.textContent = '';
@@ -145,7 +145,7 @@ function getTranslate(event) {
     });
   }
   if (event.target.classList.contains('ru')) {
-    langTextChang.forEach((index) => {
+    langTextChange.forEach((index) => {
       if (index.placeholder) {
         index.placeholder = i18Obj.ru[index.dataset.i18];
         index.textContent = '';
@@ -155,7 +155,7 @@ function getTranslate(event) {
     });
   }
 }
-langChang.addEventListener('click', getTranslate);
+langChange.addEventListener('click', getTranslate);
 
 //Подсветка активной кнопки перевода
 
@@ -169,4 +169,4 @@ function changeTranslateColor(event) {
     event.target.classList.add('active');
   }
 }
-langChang.addEventListener('click', changeTranslateColor);
+langChange.addEventListener('click', changeTranslateColor);
