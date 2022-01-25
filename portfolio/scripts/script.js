@@ -1,3 +1,4 @@
+import i18Obj from './translate.js';
 console.log(`Всего: 83 баллов\n
     1. Вёрстка соответствует макету. Ширина экрана 768px +48 - итого 48\n
     блок <header> +6 - 6\n
@@ -128,3 +129,20 @@ function changeBtnColor(event) {
   }
 }
 portfolioBtns.addEventListener('click', changeBtnColor);
+
+//Перевод страницы на два языка
+const langChang = document.querySelector('.lang-link');
+function getTranslate(event) {
+  const langTextChang = document.querySelectorAll('[data-i18]');
+  if (event.target.classList.contains('en')) {
+    langTextChang.forEach((index) => {
+      index.textContent = i18Obj.en[index.dataset.i18];
+    });
+  }
+  if (event.target.classList.contains('ru')) {
+    langTextChang.forEach((index) => {
+      index.textContent = i18Obj.ru[index.dataset.i18];
+    });
+  }
+}
+langChang.addEventListener('click', getTranslate);

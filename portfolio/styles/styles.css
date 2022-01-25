@@ -112,10 +112,11 @@ ul.lang-link {
   text-decoration: none;
   font-size: var(--font20);
 }
-a.en {
+/*a.en {
   color: var(--gold-color);
-}
-a.ru {
+}*/
+a.ru,
+a.en {
   color: #fff;
 }
 .lang-link li a:hover {
