@@ -98,8 +98,8 @@ const i18Obj = {
     phone: 'Телефон',
     message: 'Сообщение',
     'e-mail': 'Адрес эл. почты',
-    en: 'aнглийский',
-    ru: 'русский',
+    en: 'en',
+    ru: 'ru',
   },
 };
 export default i18Obj;

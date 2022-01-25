@@ -119,6 +119,10 @@ a.ru,
 a.en {
   color: #fff;
 }
+a.ru.lang-select.active,
+a.en.lang-select.active {
+  color: var(--gold-color);
+}
 .lang-link li a:hover {
   color: var(--gold-color);
 }

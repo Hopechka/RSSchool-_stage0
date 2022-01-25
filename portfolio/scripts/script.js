@@ -137,10 +137,8 @@ function getTranslate(event) {
   if (event.target.classList.contains('en')) {
     langTextChang.forEach((index) => {
       if (index.placeholder) {
-        console.log(index);
         index.placeholder = i18Obj.en[index.dataset.i18];
         index.textContent = '';
-        console.log(index);
       } else {
         index.textContent = i18Obj.en[index.dataset.i18];
       }
@@ -149,10 +147,8 @@ function getTranslate(event) {
   if (event.target.classList.contains('ru')) {
     langTextChang.forEach((index) => {
       if (index.placeholder) {
-        console.log(index);
         index.placeholder = i18Obj.ru[index.dataset.i18];
         index.textContent = '';
-        console.log(index);
       } else {
         index.textContent = i18Obj.ru[index.dataset.i18];
       }
@@ -160,3 +156,17 @@ function getTranslate(event) {
   }
 }
 langChang.addEventListener('click', getTranslate);
+
+//Подсветка активной кнопки перевода
+
+function changeTranslateColor(event) {
+  const langSelect = document.querySelectorAll('.lang-select');
+  console.log(langSelect);
+  langSelect.forEach((index) => {
+    index.classList.remove('active');
+  });
+  if (event.target.classList.contains('lang-select')) {
+    event.target.classList.add('active');
+  }
+}
+langChang.addEventListener('click', changeTranslateColor);
