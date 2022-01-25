@@ -321,6 +321,15 @@ h3 {
 .card-price div {
   text-align: center;
 }
+.button.price,
+.button.message {
+  background-color: var(--gold-color);
+  color: black;
+}
+.button.price span:hover,
+.button.message span:hover {
+  color: white;
+}
 /* Задний фон в contacts section  */
 
 .contacts-wraper {
