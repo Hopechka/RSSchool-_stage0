@@ -578,6 +578,9 @@ svg:hover {
   .nav-item a:hover {
     color: var(--gold-color);
   }
+  .nav-item.light-theme {
+    color: black;
+  }
 
   /* -------- */
 
@@ -733,6 +736,9 @@ svg:hover {
   body {
     max-width: 425px;
   }
+  .hamburger {
+    right: 20px;
+  }
 
   .hero-wrap {
     width: 100%;
@@ -752,7 +758,7 @@ svg:hover {
   .navbar {
     text-align: center;
     gap: 0;
-    width: 70%;
+    width: 77%;
   }
 }
 
@@ -779,9 +785,6 @@ h2.light-theme::after {
 
 #menu-nav.close.light-theme {
   background: white;
-}
-.nav-item.light-theme {
-  color: black;
 }
 
 .hamburger.open .line1.light-theme {

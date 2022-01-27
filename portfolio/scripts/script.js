@@ -1,4 +1,6 @@
 import i18Obj from './translate.js';
+let lang = 'eng';
+let theme = 'dark';
 
 // Добавила плавность для якорей
 const anchors = document.querySelectorAll('a[href*="#"]');
@@ -145,6 +147,7 @@ function changeTranslateColor(event) {
   });
   if (event.target.classList.contains('lang-select')) {
     event.target.classList.add('active');
+    //lang = 'rus';
   }
 }
 langChange.addEventListener('click', changeTranslateColor);
@@ -169,9 +172,30 @@ ThemesChange.addEventListener('click', () => {
     let selectSome = document.querySelectorAll(index);
     selectSome.forEach((index) => {
       index.classList.toggle('light-theme');
+      //theme = 'light';
     });
   });
 });
+
+// Дополнительный функционал: данные хранятся в local storage
+
+/*function setLocalStorage() {
+  localStorage.setItem('rus', 'lang');
+  localStorage.setItem('light', 'theme');
+}
+window.addEventListener('beforeunload', setLocalStorage);
+
+function getLocalStorage() {
+  if (localStorage.getItem('rus')) {
+    const lang = localStorage.getItem('rus');
+    getTranslate(lang);
+  }
+  if (localStorage.getItem('light')) {
+    const theme = localStorage.getItem('light');
+    getTranslate(theme);
+  }
+}
+window.addEventListener('load', getLocalStorage);*/
 //----------------------------------------------------------------
 console.log(`Всего: 83 баллов\n
     1. Вёрстка соответствует макету. Ширина экрана 768px +48 - итого 48\n
