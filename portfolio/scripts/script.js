@@ -1,5 +1,5 @@
 import i18Obj from './translate.js';
-let lang = 'eng';
+let lang = 'en';
 let theme = 'dark';
 
 // Добавила плавность для якорей
@@ -111,7 +111,8 @@ function changeBtnColor(event) {
 portfolioBtns.addEventListener('click', changeBtnColor);
 
 //Перевод страницы на два языка
-const langChange = document.querySelector('.lang-link');
+
+/*const langChange = document.querySelector('.lang-link');
 function getTranslate(event) {
   const langTextChange = document.querySelectorAll('[data-i18]');
   if (event.target.classList.contains('en')) {
@@ -135,6 +136,41 @@ function getTranslate(event) {
     });
   }
 }
+langChange.addEventListener('click', getTranslate);*/
+
+const langChange = document.querySelector('.lang-link');
+function getTranslate(event) {
+  if (event.target.classList.contains('en')) {
+    getTranslateLang('en');
+  }
+  if (event.target.classList.contains('ru')) {
+    getTranslateLang('ru');
+  }
+}
+function getTranslateLang(lang) {
+  const langTextChange = document.querySelectorAll('[data-i18]');
+  if (lang === 'en') {
+    langTextChange.forEach((index) => {
+      if (index.placeholder) {
+        index.placeholder = i18Obj.en[index.dataset.i18];
+        index.textContent = '';
+      } else {
+        index.textContent = i18Obj.en[index.dataset.i18];
+      }
+    });
+  }
+  if (lang === 'ru') {
+    langTextChange.forEach((index) => {
+      if (index.placeholder) {
+        index.placeholder = i18Obj.ru[index.dataset.i18];
+        index.textContent = '';
+      } else {
+        index.textContent = i18Obj.ru[index.dataset.i18];
+      }
+    });
+  }
+}
+
 langChange.addEventListener('click', getTranslate);
 
 //Подсветка активной кнопки перевода
@@ -179,23 +215,20 @@ ThemesChange.addEventListener('click', () => {
 
 // Дополнительный функционал: данные хранятся в local storage
 
-/*function setLocalStorage() {
-  localStorage.setItem('rus', 'lang');
-  localStorage.setItem('light', 'theme');
+function setLocalStorage() {
+  localStorage.setItem('lang', lang);
+  localStorage.setItem('theme', theme);
 }
 window.addEventListener('beforeunload', setLocalStorage);
 
 function getLocalStorage() {
-  if (localStorage.getItem('rus')) {
-    const lang = localStorage.getItem('rus');
-    getTranslate(lang);
-  }
-  if (localStorage.getItem('light')) {
-    const theme = localStorage.getItem('light');
-    getTranslate(theme);
+  if (localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    //getTranslate(lang);
+    getTranslateLang(lang);
   }
 }
-window.addEventListener('load', getLocalStorage);*/
+window.addEventListener('load', getLocalStorage);
 //----------------------------------------------------------------
 console.log(`Всего: 83 баллов\n
     1. Вёрстка соответствует макету. Ширина экрана 768px +48 - итого 48\n
