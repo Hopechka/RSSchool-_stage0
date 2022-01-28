@@ -88,18 +88,6 @@ svg.logo {
 .nav li a:hover {
   color: var(--gold-color);
 }
-/* .slash::before {
-  content: 'en';
-  padding-right: 8px;
-  font-weight: bold;
-  color: var(--gold-color);
-  font-size: var(--font20);
-}
-.slash::after {
-  content: 'ru';
-  padding-left: 8px;
-  font-size: var(--font20); 
-}*/
 
 ul.lang-link {
   margin: 0;
@@ -131,11 +119,42 @@ a.en.lang-select.active {
 .lang-link li a:hover {
   color: var(--gold-color);
 }
-.themes {
+
+/* прячем input checkbox */
+input[type='checkbox'] {
   display: none;
 }
-.themes.light-theme {
-  display: block;
+
+/* стили для метки */
+label {
+  cursor: default;
+  font-weight: normal;
+  vertical-align: middle;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+label:hover {
+  color: var(--gold-color);
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+/* формируем внешний вид чекбокса в псевдоэлементе before */
+label:before {
+  content: url(../images/themes/sun.svg);
+  /*  display: inline-block; 
+  position: relative; 
+  text-align: center;
+  text-indent: 0px;
+  border-image: initial;
+  vertical-align: middle;*/
+}
+
+/* вариации внешнего вида в зав-ти от статуса checkbox */
+/* checked */
+input:checked + label:before {
+  content: url(../images/themes/moon.svg);
 }
 
 /* Карточка фотографа  */
@@ -496,6 +515,7 @@ svg:hover {
     /* gap: 0; */
     margin-left: 0;
   }
+
   /* -------Меню гамбургер------- */
   .hamburger {
     position: absolute;

@@ -154,7 +154,7 @@ const langChange = document.querySelector('.lang-link');
 function getTranslate(lang) {
   const langTextChange = document.querySelectorAll('[data-i18]');
   if (lang === 'en') {
-    langTextChange.forEach((index) => {
+    return langTextChange.forEach((index) => {
       if (index.placeholder) {
         index.placeholder = i18Obj.en[index.dataset.i18];
         index.textContent = '';
@@ -164,7 +164,7 @@ function getTranslate(lang) {
     });
   }
   if (lang === 'ru') {
-    langTextChange.forEach((index) => {
+    return langTextChange.forEach((index) => {
       if (index.placeholder) {
         index.placeholder = i18Obj.ru[index.dataset.i18];
         index.textContent = '';
@@ -201,7 +201,8 @@ langChange.addEventListener('click', changeTranslateColor);
 //-------------------------------------------------------------------------
 
 //Смена кнопки выбора темы
-const ThemesChange = document.querySelector('.theme');
+var checkBox = document.getElementById('theme-select');
+
 const changeThemesList = [
   '.themes',
   'body',
@@ -218,26 +219,51 @@ const changeThemesList = [
   '.line1',
   '.line3',
 ];
-/*function changeThemes(theme) {
-  if (document.querySelector('.themes').classList.contains('active')) {
-    theme = 'dark';
-    changeThemesList.forEach((index) => {
-      let selectSome = document.querySelectorAll(index);
-      selectSome.forEach((index, i) => {
-        index[i + 1].classList.remove('light-theme');
-      });
-    });
-  } else {
-    theme = 'light';
-    changeThemesList.forEach((index) => {
-      let selectSome = document.querySelectorAll(index);
-      selectSome.forEach((index, i) => {
-        index[i + 1].classList.add('light-theme');
-      });
-    });
-  }
-}*/
 
+var theme = window.localStorage.getItem('data-theme');
+if (theme) document.documentElement.setAttribute('data-theme', theme);
+//checkBox.checked = theme == 'dark' ? true : false;
+if (theme == 'dark') {
+  checkBox.checked = true;
+  ThemesChangeRemove();
+} else {
+  checkBox.checked = false;
+  ThemesChangeAdd();
+}
+
+checkBox.addEventListener('change', function () {
+  if (this.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    window.localStorage.setItem('data-theme', 'dark');
+    ThemesChangeRemove();
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    window.localStorage.setItem('data-theme', 'light');
+
+    ThemesChangeAdd();
+  }
+});
+
+//const ThemesChange = document.querySelector('.theme');
+function ThemesChangeAdd() {
+  return changeThemesList.forEach((index) => {
+    let selectSome = document.querySelectorAll(index);
+    selectSome.forEach((index) => {
+      index.classList.add('light-theme');
+    });
+  });
+}
+function ThemesChangeRemove() {
+  return changeThemesList.forEach((index) => {
+    let selectSome = document.querySelectorAll(index);
+    selectSome.forEach((index) => {
+      index.classList.remove('light-theme');
+    });
+  });
+}
+
+//----------
+/*const ThemesChange = document.querySelector('.theme');
 ThemesChange.addEventListener('click', () => {
   changeThemesList.forEach((index) => {
     let selectSome = document.querySelectorAll(index);
@@ -246,15 +272,14 @@ ThemesChange.addEventListener('click', () => {
       //theme = 'light';
     });
   });
-});
-ThemesChange.addEventListener('click', changeThemes);
+});*/
+
 //-------------------------------------------------------------------------
 
 // Дополнительный функционал: данные хранятся в local storage
 
 function setLocalStorage() {
   localStorage.setItem('lang', lang);
-  localStorage.setItem('theme', theme);
 }
 window.addEventListener('beforeunload', setLocalStorage);
 
@@ -262,11 +287,6 @@ function getLocalStorage() {
   if (localStorage.getItem('lang')) {
     const lang = localStorage.getItem('lang');
     getTranslate(lang);
-  }
-  if (localStorage.getItem('theme')) {
-    const theme = localStorage.getItem('theme');
-    changeThemes(theme);
-    console.log(theme);
   }
 }
 window.addEventListener('load', getLocalStorage);
