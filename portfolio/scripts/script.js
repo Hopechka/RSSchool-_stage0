@@ -2,7 +2,7 @@ import i18Obj from './translate.js';
 var lang = 'en';
 var theme = 'light';
 
-//-------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 
 // Добавила плавность для якорей
 const anchors = document.querySelectorAll('a[href*="#"]');
@@ -290,10 +290,46 @@ function getLocalStorage() {
   }
 }
 window.addEventListener('load', getLocalStorage);
+
 //----------------------------------------------------------------
-console.log(`По итогу 3 части задания Всего: 78 баллов\n
-    1. Не выполненные/не засчитанные пункты:\n
-    1) сложные эффекты для кнопок при наведении и/или клике\n
+
+/* Кнопка с эффектом Ripple Button */
+
+const portfolioBtn = document.querySelectorAll('.portfolio-btn');
+
+portfolioBtn.forEach((index) => {
+  index.addEventListener('click', function (event) {
+    const x = event.clientX;
+    const y = event.clientY;
+
+    /*console.log(x + ' - это x; ' + y + ' - это y ');*/
+
+    const buttonTop = event.target.offsetTop;
+    const buttonLeft = event.target.offsetLeft;
+    /*console.log(
+      buttonLeft + ' - это buttonLeft ' + buttonTop + ' - это buttonTop; '
+    );*/
+
+    let box = index.getBoundingClientRect();
+    //console.log(box);
+    const xInside = x - buttonLeft;
+    const yInside = y - box.top;
+    /*console.log(xInside + ' - это xInside; ' + yInside + ' - это yInside ');*/
+
+    const circle = document.createElement('span');
+    circle.classList.add('circle');
+    circle.style.top = yInside + 'px';
+    circle.style.left = xInside + 'px';
+
+    this.appendChild(circle);
+
+    setTimeout(() => circle.remove(), 500);
+  });
+});
+
+//----------------------------------------------------------------
+
+console.log(`По итогу 3 части задания Всего: 83 балла\n
     Частично выполненные пункты:\n
     1) выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы — 3 балл(а)\n`);
 
