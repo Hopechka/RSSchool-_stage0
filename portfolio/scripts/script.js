@@ -1,6 +1,8 @@
 import i18Obj from './translate.js';
-let lang = 'en';
-let theme = 'dark';
+var lang = 'en';
+var theme = 'light';
+
+//-------------------------------------------------------------------------
 
 // Добавила плавность для якорей
 const anchors = document.querySelectorAll('a[href*="#"]');
@@ -16,6 +18,8 @@ for (let anchor of anchors) {
     });
   });
 }
+
+//-------------------------------------------------------------------------
 
 // Добавила активность для гамбургер-меню
 const hamburger = document.querySelector('.hamburger');
@@ -40,6 +44,8 @@ function menuClose() {
   toggleMenClose();
 }
 navMenu.addEventListener('click', menuClose);
+
+//-------------------------------------------------------------------------
 
 // Поменять изображение на другой сезон
 
@@ -85,6 +91,8 @@ function changeImage(event) {
 }
 portfolioBtns.addEventListener('click', changeImage);
 
+//-------------------------------------------------------------------------
+
 //Кеширование изображений
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
 function preloadImages() {
@@ -96,6 +104,8 @@ function preloadImages() {
   }
 }
 preloadImages();
+
+//-------------------------------------------------------------------------
 
 //Подсветка активной кнопки
 
@@ -109,6 +119,8 @@ function changeBtnColor(event) {
   }
 }
 portfolioBtns.addEventListener('click', changeBtnColor);
+
+//-------------------------------------------------------------------------
 
 //Перевод страницы на два языка
 
@@ -139,15 +151,7 @@ function getTranslate(event) {
 langChange.addEventListener('click', getTranslate);*/
 
 const langChange = document.querySelector('.lang-link');
-function getTranslate(event) {
-  if (event.target.classList.contains('en')) {
-    getTranslateLang('en');
-  }
-  if (event.target.classList.contains('ru')) {
-    getTranslateLang('ru');
-  }
-}
-function getTranslateLang(lang) {
+function getTranslate(lang) {
   const langTextChange = document.querySelectorAll('[data-i18]');
   if (lang === 'en') {
     langTextChange.forEach((index) => {
@@ -171,7 +175,7 @@ function getTranslateLang(lang) {
   }
 }
 
-langChange.addEventListener('click', getTranslate);
+//langChange.addEventListener('click', getTranslate);
 
 //Подсветка активной кнопки перевода
 
@@ -183,19 +187,30 @@ function changeTranslateColor(event) {
   });
   if (event.target.classList.contains('lang-select')) {
     event.target.classList.add('active');
-    //lang = 'rus';
+    if (event.target.classList.contains('en')) {
+      lang = 'en';
+      getTranslate(lang);
+    } else {
+      lang = 'ru';
+      getTranslate(lang);
+    }
   }
 }
 langChange.addEventListener('click', changeTranslateColor);
+
+//-------------------------------------------------------------------------
 
 //Смена кнопки выбора темы
 const ThemesChange = document.querySelector('.theme');
 const changeThemesList = [
   '.themes',
+  'body',
   '#skills',
   '#portfolio',
   '#price',
   '#video',
+  '#footer',
+  '#contacts',
   'h2',
   '.portfolio-btn',
   '#menu-nav',
@@ -203,6 +218,26 @@ const changeThemesList = [
   '.line1',
   '.line3',
 ];
+/*function changeThemes(theme) {
+  if (document.querySelector('.themes').classList.contains('active')) {
+    theme = 'dark';
+    changeThemesList.forEach((index) => {
+      let selectSome = document.querySelectorAll(index);
+      selectSome.forEach((index, i) => {
+        index[i + 1].classList.remove('light-theme');
+      });
+    });
+  } else {
+    theme = 'light';
+    changeThemesList.forEach((index) => {
+      let selectSome = document.querySelectorAll(index);
+      selectSome.forEach((index, i) => {
+        index[i + 1].classList.add('light-theme');
+      });
+    });
+  }
+}*/
+
 ThemesChange.addEventListener('click', () => {
   changeThemesList.forEach((index) => {
     let selectSome = document.querySelectorAll(index);
@@ -212,6 +247,8 @@ ThemesChange.addEventListener('click', () => {
     });
   });
 });
+ThemesChange.addEventListener('click', changeThemes);
+//-------------------------------------------------------------------------
 
 // Дополнительный функционал: данные хранятся в local storage
 
@@ -224,8 +261,12 @@ window.addEventListener('beforeunload', setLocalStorage);
 function getLocalStorage() {
   if (localStorage.getItem('lang')) {
     const lang = localStorage.getItem('lang');
-    //getTranslate(lang);
-    getTranslateLang(lang);
+    getTranslate(lang);
+  }
+  if (localStorage.getItem('theme')) {
+    const theme = localStorage.getItem('theme');
+    changeThemes(theme);
+    console.log(theme);
   }
 }
 window.addEventListener('load', getLocalStorage);

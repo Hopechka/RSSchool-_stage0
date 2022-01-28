@@ -3,9 +3,10 @@
   --gold-color: #bdae82;
   --font20: 20px;
 }
-/* * {
+/*
+* {
   outline: 1px solid red;
-} */
+}*/
 
 body {
   /* border: 2px solid red; */
@@ -136,6 +137,7 @@ a.en.lang-select.active {
 .themes.light-theme {
   display: block;
 }
+
 /* Карточка фотографа  */
 .hero {
   height: 820px;
@@ -259,7 +261,7 @@ h4 {
 /* Фотографии портфолио  */
 
 .content-photo {
-  margin: 60px 20px 0;
+  margin: 60px 0 0 20px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -387,6 +389,7 @@ h3 {
 /* Выровнила поля, чтобы текст был слева и ровно */
 .field {
   padding-bottom: 20px;
+  margin-right: 20px;
   overflow: hidden;
 }
 
@@ -707,6 +710,9 @@ svg:hover {
     line-height: 2em;
     padding-top: 60px;
   }
+  .field {
+    margin-right: 0;
+  }
   .footer-wraper {
     flex-direction: column;
     height: 100%;
@@ -761,6 +767,9 @@ svg:hover {
     width: 77%;
   }
 }
+/*body.light-theme {
+  background: white;
+}*/
 
 #skills.light-theme,
 #portfolio.light-theme,
@@ -771,7 +780,9 @@ h2.light-theme {
   color: black;
 }
 h2.light-theme::before,
-h2.light-theme::after {
+h2.light-theme::after,
+#footer.light-theme,
+#contacts.light-theme {
   background: black;
 }
 .portfolio-btn.light-theme {
