@@ -366,6 +366,7 @@ h3 {
   background-color: var(--gold-color);
   color: black;
 }
+
 .button.price:hover,
 .button.message:hover {
   color: white;
@@ -785,6 +786,7 @@ svg:hover {
     text-align: center;
     gap: 0;
     width: 77%;
+
   }
 }
 /*body.light-theme {
