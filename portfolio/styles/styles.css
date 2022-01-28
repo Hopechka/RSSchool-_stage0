@@ -3,6 +3,10 @@
   --gold-color: #bdae82;
   --font20: 20px;
 }
+/*
+* {
+  outline: 1px solid red;
+}*/
 
 body {
   /* border: 2px solid red; */
@@ -16,6 +20,7 @@ body {
   line-height: 2em;
   color: #ffffff;
 }
+
 #container {
   /* border: 2px solid green; */
   width: 100%;
@@ -59,7 +64,7 @@ input#menu__toggle {
   align-items: center;
   gap: 31px;
 }
-img .logo {
+svg.logo {
   flex: 1;
 }
 
@@ -83,18 +88,6 @@ img .logo {
 .nav li a:hover {
   color: var(--gold-color);
 }
-/* .slash::before {
-  content: 'en';
-  padding-right: 8px;
-  font-weight: bold;
-  color: var(--gold-color);
-  font-size: var(--font20);
-}
-.slash::after {
-  content: 'ru';
-  padding-left: 8px;
-  font-size: var(--font20); 
-}*/
 
 ul.lang-link {
   margin: 0;
@@ -112,15 +105,58 @@ ul.lang-link {
   text-decoration: none;
   font-size: var(--font20);
 }
-a.en {
+/*a.en {
   color: var(--gold-color);
-}
-a.ru {
+}*/
+a.ru,
+a.en {
   color: #fff;
+}
+a.ru.lang-select.active,
+a.en.lang-select.active {
+  color: var(--gold-color);
 }
 .lang-link li a:hover {
   color: var(--gold-color);
 }
+
+/* прячем input checkbox */
+input[type='checkbox'] {
+  display: none;
+}
+
+/* стили для метки */
+label {
+  cursor: default;
+  font-weight: normal;
+  vertical-align: middle;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+label:hover {
+  color: var(--gold-color);
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+/* формируем внешний вид чекбокса в псевдоэлементе before */
+label:before {
+  content: url(../images/themes/sun.svg);
+  /*  display: inline-block; 
+  position: relative; 
+  text-align: center;
+  text-indent: 0px;
+  border-image: initial;
+  vertical-align: middle;*/
+}
+
+/* вариации внешнего вида в зав-ти от статуса checkbox */
+/* checked */
+input:checked + label:before {
+  content: url(../images/themes/moon.svg);
+}
+
 /* Карточка фотографа  */
 .hero {
   height: 820px;
@@ -228,8 +264,8 @@ h4 {
   height: 55px;
   margin: 0 5px;
   color: var(--gold-color);
-  border: 1px solid var(--gold-color);
-  background: black;
+  border: 2px solid var(--gold-color);
+  background: none;
   font-size: var(--font20);
   line-height: 2em;
   transition: all 0.5s ease-in-out;
@@ -237,10 +273,14 @@ h4 {
 .button:hover {
   color: white;
 }
+.portfolio-btn.active {
+  color: #000;
+  background-color: var(--gold-color);
+}
 /* Фотографии портфолио  */
 
 .content-photo {
-  margin: 60px 20px 0;
+  margin: 60px 0 0 20px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -281,7 +321,7 @@ h4 {
 /* Карточки в price section  */
 
 .price-card-wraper {
-  margin: 0 20px;
+  margin: 0 20px 100px;
   display: flex;
   gap: 25px;
 }
@@ -289,7 +329,7 @@ h4 {
 .card-price {
   width: 450px;
   height: 505px;
-  border: 1px solid var(--gold-color);
+  border: 3px solid var(--gold-color);
   box-sizing: border-box;
 }
 
@@ -326,8 +366,9 @@ h3 {
   background-color: var(--gold-color);
   color: black;
 }
-.button.price span:hover,
-.button.message span:hover {
+
+.button.price:hover,
+.button.message:hover {
   color: white;
 }
 /* Задний фон в contacts section  */
@@ -340,7 +381,6 @@ h3 {
   position: relative;
   height: 700px;
   /* width: 1400px; */
-  margin-top: 100px;
 }
 
 /* Форма для контактов  */
@@ -351,8 +391,10 @@ h3 {
   font-family: var(--another-font);
   color: var(--gold-color);
   margin-bottom: 40px;
-  margin-top: 60px;
+  padding-top: 60px;
+  margin-top: 0;
   text-align: left;
+  box-sizing: border-box;
 }
 .contacts-block {
   float: right;
@@ -367,6 +409,7 @@ h3 {
 /* Выровнила поля, чтобы текст был слева и ровно */
 .field {
   padding-bottom: 20px;
+  margin-right: 20px;
   overflow: hidden;
 }
 
@@ -374,7 +417,7 @@ input,
 textarea {
   background: rgba(0, 0, 0, 0.5);
   color: var(--gold-color);
-  border: 1px solid var(--gold-color);
+  border: 2px solid var(--gold-color);
   width: 450px;
   box-sizing: border-box;
   font-size: var(--font20);
@@ -470,9 +513,10 @@ svg:hover {
   .navbar {
     width: 88%;
     text-align: right;
-    gap: 0;
+    /* gap: 0; */
     margin-left: 0;
   }
+
   /* -------Меню гамбургер------- */
   .hamburger {
     position: absolute;
@@ -545,6 +589,9 @@ svg:hover {
     font-size: 35px;
     line-height: 73px;
   }
+  .nav li {
+    padding-left: 0;
+  }
   .nav-item {
     display: block;
     padding: 16px;
@@ -554,6 +601,9 @@ svg:hover {
   }
   .nav-item a:hover {
     color: var(--gold-color);
+  }
+  .nav-item.light-theme {
+    color: black;
   }
 
   /* -------- */
@@ -652,7 +702,7 @@ svg:hover {
   }
 
   .price-card-wraper {
-    margin: 0 20px;
+    margin: 0 20px 81px;
     gap: 50px;
     flex-direction: column;
     align-items: center;
@@ -667,7 +717,7 @@ svg:hover {
   .contacts-wraper {
     height: 600px;
     background-position: top;
-    margin-top: 81px;
+    /* margin-top: 81px; */
   }
   .contacts-block {
     float: none;
@@ -680,6 +730,9 @@ svg:hover {
     font-size: 32px;
     line-height: 2em;
     padding-top: 60px;
+  }
+  .field {
+    margin-right: 0;
   }
   .footer-wraper {
     flex-direction: column;
@@ -695,9 +748,23 @@ svg:hover {
     margin-top: 18px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  input,
+  textarea {
+    width: 80%;
+  }
+  .card-price {
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 425px) {
   body {
     max-width: 425px;
+  }
+  .hamburger {
+    right: 20px;
   }
 
   .hero-wrap {
@@ -709,10 +776,54 @@ svg:hover {
   header {
     background-position: center center;
   }
+  .header-wraper {
+    margin: 0 20px;
+  }
   div.lang {
     flex-shrink: 1;
   }
   .navbar {
     text-align: center;
+    gap: 0;
+    width: 77%;
+
   }
+}
+/*body.light-theme {
+  background: white;
+}*/
+
+#skills.light-theme,
+#portfolio.light-theme,
+#video.light-theme,
+#price.light-theme,
+h2.light-theme {
+  background: white;
+  color: black;
+}
+h2.light-theme::before,
+h2.light-theme::after,
+#footer.light-theme,
+#contacts.light-theme {
+  background: black;
+}
+.portfolio-btn.light-theme {
+  color: black;
+}
+/*.portfolio-btn.light-theme:hover*/
+.portfolio-btn.light-theme.active {
+  color: white;
+  background-color: var(--gold-color);
+}
+
+#menu-nav.close.light-theme {
+  background: white;
+}
+
+.hamburger.open .line1.light-theme {
+  background: black;
+}
+
+.hamburger.open .line3.light-theme {
+  background: black;
 }
