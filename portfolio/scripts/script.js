@@ -153,29 +153,15 @@ langChange.addEventListener('click', getTranslate);*/
 const langChange = document.querySelector('.lang-link');
 function getTranslate(lang) {
   const langTextChange = document.querySelectorAll('[data-i18]');
-  if (lang === 'en') {
-    return langTextChange.forEach((index) => {
-      if (index.placeholder) {
-        index.placeholder = i18Obj.en[index.dataset.i18];
-        index.textContent = '';
-      } else {
-        index.textContent = i18Obj.en[index.dataset.i18];
-      }
-    });
-  }
-  if (lang === 'ru') {
-    return langTextChange.forEach((index) => {
-      if (index.placeholder) {
-        index.placeholder = i18Obj.ru[index.dataset.i18];
-        index.textContent = '';
-      } else {
-        index.textContent = i18Obj.ru[index.dataset.i18];
-      }
-    });
-  }
+  return langTextChange.forEach((index) => {
+    if (index.placeholder) {
+      index.placeholder = i18Obj[lang][index.dataset.i18];
+      index.textContent = '';
+    } else {
+      index.textContent = i18Obj[lang][index.dataset.i18];
+    }
+  });
 }
-
-//langChange.addEventListener('click', getTranslate);
 
 //Подсветка активной кнопки перевода
 
@@ -261,18 +247,6 @@ function ThemesChangeRemove() {
     });
   });
 }
-
-//----------
-/*const ThemesChange = document.querySelector('.theme');
-ThemesChange.addEventListener('click', () => {
-  changeThemesList.forEach((index) => {
-    let selectSome = document.querySelectorAll(index);
-    selectSome.forEach((index) => {
-      index.classList.toggle('light-theme');
-      //theme = 'light';
-    });
-  });
-});*/
 
 //-------------------------------------------------------------------------
 
