@@ -49,38 +49,10 @@ navMenu.addEventListener('click', menuClose);
 
 // Поменять изображение на другой сезон
 
-/*const portfolioBtn = document.querySelectorAll('.portfolio-btn');
-const portfolioImages = document.querySelectorAll('.portfolio-image');
-//Зима
-portfolioBtn[0].addEventListener('click', () => {
-  portfolioImages.forEach(
-    (img, index) => (img.src = `pictures/content-photo/winter/${index + 1}.jpg`)
-  );
-});
-//Весна
-portfolioBtn[1].addEventListener('click', () => {
-  portfolioImages.forEach(
-    (img, index) => (img.src = `pictures/content-photo/spring/${index + 1}.jpg`)
-  );
-});
-//Лето
-portfolioBtn[2].addEventListener('click', () => {
-  portfolioImages.forEach(
-    (img, index) => (img.src = `pictures/content-photo/summer/${index + 1}.jpg`)
-  );
-});
-//Осень
-portfolioBtn[3].addEventListener('click', () => {
-  portfolioImages.forEach(
-    (img, index) => (img.src = `pictures/content-photo/autumn/${index + 1}.jpg`)
-  );
-});*/
 const portfolioBtns = document.querySelector('.carousel');
 const portfolioImages = document.querySelectorAll('.portfolio-image');
 function changeImage(event) {
   if (event.target.classList.contains('portfolio-btn')) {
-    //event.target.classList.remove('active');
-    //event.target.classList.add('active');
     portfolioImages.forEach(
       (img, index) =>
         (img.src = `pictures/content-photo/${event.target.dataset.season}/${
@@ -107,48 +79,20 @@ preloadImages();
 
 //-------------------------------------------------------------------------
 
-//Подсветка активной кнопки
+//Подсветка активных кнопок
 
 function changeBtnColor(event) {
-  const portfolioBtn = document.querySelectorAll('.portfolio-btn');
-  portfolioBtn.forEach((index) => {
+  const activeBtn = document.querySelectorAll(`.${event.target.classList[1]}`);
+  activeBtn.forEach((index) => {
     index.classList.remove('active');
   });
-  if (event.target.classList.contains('portfolio-btn')) {
-    event.target.classList.add('active');
-  }
+  event.target.classList.add('active');
 }
 portfolioBtns.addEventListener('click', changeBtnColor);
 
 //-------------------------------------------------------------------------
 
 //Перевод страницы на два языка
-
-/*const langChange = document.querySelector('.lang-link');
-function getTranslate(event) {
-  const langTextChange = document.querySelectorAll('[data-i18]');
-  if (event.target.classList.contains('en')) {
-    langTextChange.forEach((index) => {
-      if (index.placeholder) {
-        index.placeholder = i18Obj.en[index.dataset.i18];
-        index.textContent = '';
-      } else {
-        index.textContent = i18Obj.en[index.dataset.i18];
-      }
-    });
-  }
-  if (event.target.classList.contains('ru')) {
-    langTextChange.forEach((index) => {
-      if (index.placeholder) {
-        index.placeholder = i18Obj.ru[index.dataset.i18];
-        index.textContent = '';
-      } else {
-        index.textContent = i18Obj.ru[index.dataset.i18];
-      }
-    });
-  }
-}
-langChange.addEventListener('click', getTranslate);*/
 
 const langChange = document.querySelector('.lang-link');
 function getTranslate(lang) {
@@ -162,27 +106,28 @@ function getTranslate(lang) {
     }
   });
 }
+langChange.addEventListener('click', (event) => {
+  if (event.target.classList.contains('en')) {
+    lang = 'en';
+  } else {
+    lang = 'ru';
+  }
+  window.localStorage.setItem('lang', lang);
+  return getTranslate(lang);
+});
+langChange.addEventListener('click', changeBtnColor);
 
-//Подсветка активной кнопки перевода
+//-------------------------------------------------------------------------
 
-function changeTranslateColor(event) {
-  const langSelect = document.querySelectorAll('.lang-select');
+// Дополнительный функционал: данные достать из local storage
 
-  langSelect.forEach((index) => {
-    index.classList.remove('active');
-  });
-  if (event.target.classList.contains('lang-select')) {
-    event.target.classList.add('active');
-    if (event.target.classList.contains('en')) {
-      lang = 'en';
-      getTranslate(lang);
-    } else {
-      lang = 'ru';
-      getTranslate(lang);
-    }
+function getLocalStorage() {
+  if (localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    getTranslate(lang);
   }
 }
-langChange.addEventListener('click', changeTranslateColor);
+window.addEventListener('load', getLocalStorage);
 
 //-------------------------------------------------------------------------
 
@@ -248,25 +193,6 @@ function ThemesChangeRemove() {
   });
 }
 
-//-------------------------------------------------------------------------
-
-// Дополнительный функционал: данные хранятся в local storage
-
-function setLocalStorage() {
-  localStorage.setItem('lang', lang);
-}
-window.addEventListener('beforeunload', setLocalStorage);
-
-function getLocalStorage() {
-  if (localStorage.getItem('lang')) {
-    const lang = localStorage.getItem('lang');
-    getTranslate(lang);
-  }
-}
-window.addEventListener('load', getLocalStorage);
-
-//----------------------------------------------------------------
-
 /* Кнопка с эффектом Ripple Button */
 
 const portfolioBtn = document.querySelectorAll('.portfolio-btn');
@@ -278,7 +204,7 @@ portfolioBtn.forEach((index) => {
 
     /*console.log(x + ' - это x; ' + y + ' - это y ');*/
 
-    const buttonTop = event.target.offsetTop;
+    //const buttonTop = event.target.offsetTop;
     const buttonLeft = event.target.offsetLeft;
     /*console.log(
       buttonLeft + ' - это buttonLeft ' + buttonTop + ' - это buttonTop; '
