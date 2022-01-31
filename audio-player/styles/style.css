@@ -78,9 +78,9 @@ html {
 /*--------------------*/
 
 /*Помогает следить за границами*/
-/* * {
+* {
   outline: 1px solid red;
-} */
+}
 /*--------------------*/
 
 body {
@@ -90,8 +90,44 @@ body {
   max-width: 1440px; /* максимальная ширина экрана */
   height: 100vh;
   overflow: hidden;
-  margin: 0;
+  margin: 0 auto;
 }
+
+#main {
+  width: 100%;
+  height: calc(100% - 90px);
+  border: 2px solid none;
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  background: url(../images/pics/dontstartnow.png) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-origin: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute; /* слой полупрозначный поверх основания */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  backdrop-filter: blur(6px);
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+/*--------------------*/
 .container {
   width: calc(100% - 40px); /* за вычетом маржинга для всего контента */
   box-sizing: border-box;
@@ -101,21 +137,14 @@ body {
   text-align: center;
 }
 
-.modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/*--------------------*/
-
 /*Подвал*/
 #footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  height: 70px;
+  margin: 10px 0;
 }
 
 .data,
@@ -150,11 +179,23 @@ body {
 
 /*--------------------*/
 /*Адаптивность*/
+@media screen and (max-width: 768px) {
+}
 
 @media screen and (max-width: 425px) {
+  .modal {
+    width: 80%;
+    height: 80%;
+  }
+}
+@media screen and (max-width: 320px) {
+  #main {
+    height: calc(100% - 140px); /*140рх - высота футера + маржинги*/
+  }
   #footer {
     flex-direction: column;
     gap: 10px;
+    height: 120px;
   }
 }
 /*--------------------*/
