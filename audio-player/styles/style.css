@@ -1,0 +1,160 @@
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+ol li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+html {
+  scroll-behavior: smooth;
+}
+/*--------------------*/
+
+/*Помогает следить за границами*/
+* {
+  outline: 1px solid red;
+}
+/*--------------------*/
+
+body {
+  background-color: #536e83;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  color: white;
+  max-width: 1440px; /* максимальная ширина экрана */
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.container {
+  width: calc(100% - 40px); /* за вычетом маржинга для всего контента */
+  box-sizing: border-box;
+  margin: auto; /* контейнер выравнен по центру(маржинги по 20рх слева и справа */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*--------------------*/
+
+/*Подвал*/
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.data,
+.git-link {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.git-link a {
+  text-decoration: none;
+  color: white;
+}
+.git-link a:hover {
+  color: black;
+}
+
+.git-link span {
+  text-align: center;
+}
+
+.git-link img {
+  width: 50px;
+  filter: brightness(0) saturate(100%);
+}
+.git-link img:hover {
+  filter: brightness(0) saturate(100%);
+}
+.school-link img {
+  width: 90px;
+}
+
+/*--------------------*/
+/*Адаптивность*/
+
+@media screen and (max-width: 768px) {
+  #footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+/*--------------------*/
