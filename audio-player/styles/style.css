@@ -78,9 +78,9 @@ html {
 /*--------------------*/
 
 /*Помогает следить за границами*/
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 /*--------------------*/
 
 body {
@@ -127,14 +127,14 @@ body {
 
 .git-link a {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
 }
 .git-link a:hover {
   color: black;
 }
 
 .git-link span {
-  text-align: center;
+  padding-left: 5px;
 }
 
 .git-link img {
@@ -151,7 +151,7 @@ body {
 /*--------------------*/
 /*Адаптивность*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
   #footer {
     flex-direction: column;
     gap: 10px;
