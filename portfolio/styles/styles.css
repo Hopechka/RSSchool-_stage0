@@ -814,12 +814,19 @@ svg:hover {
     text-align: center;
     gap: 0;
     width: 77%;
-
   }
 }
-/*body.light-theme {
+@media screen and (max-width: 375px) {
+  .card-price {
+    height: 580px;
+  }
+  .button.price {
+    width: 80%;
+  }
+}
+body.light-theme {
   background: white;
-}*/
+}
 
 #skills.light-theme,
 #portfolio.light-theme,
