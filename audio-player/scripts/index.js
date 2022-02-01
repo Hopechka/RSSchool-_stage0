@@ -15,7 +15,7 @@ const current = document.querySelector('.current');
 //Название песен
 const songs = ['dontstartnow', 'lemonade'];
 const singers = {
-  dontstartnow: { name: 'Dua Lipa', singer: "Don't start now" },
+  dontstartnow: { name: "Don't start now", singer: 'Dua Lipa' },
   lemonade: { name: "Don't hurt Yourself", singer: 'Beyonce' },
 };
 
