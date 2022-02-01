@@ -824,9 +824,9 @@ svg:hover {
     width: 80%;
   }
 }
-/*body.light-theme {
+body.light-theme {
   background: white;
-}*/
+}
 
 #skills.light-theme,
 #portfolio.light-theme,
