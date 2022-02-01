@@ -5,7 +5,7 @@ const prevBtn = document.querySelector('.button-prev');
 const nextBtn = document.querySelector('.button-next');
 const audio = document.querySelector('.audio');
 const progressContainer = document.querySelector('.progress-container');
-const slider = document.querySelector('.slider');
+const progress = document.querySelector('.progress');
 const singer = document.querySelector('.singer');
 const songName = document.querySelector('.name');
 const albumPicImg = document.querySelector('.album-pic-img');
@@ -20,7 +20,7 @@ const singers = {
 };
 
 //Песня по умолчанию
-let songIndex = 0;
+let playNum = 0;
 
 //Init
 function loadSong(song) {
@@ -32,17 +32,18 @@ function loadSong(song) {
   main.style.backgroundSize = 'cover';
   main.style.backgroundPosition = 'center center';
 }
-loadSong(songs[songIndex]);
+loadSong(songs[playNum]);
 
-//Play song
+//Play audio
 function PlaySong() {
+  audio.currentTime = 0;
   player.classList.add('active');
   albumPicImg.classList.add('active');
   audio.play();
   imgSrc.src = 'images/player-btns/pause.png';
 }
 
-//Pause song
+//Pause audio
 function PauseSong() {
   player.classList.remove('active');
   albumPicImg.classList.remove('active');
@@ -56,22 +57,22 @@ playBtn.addEventListener('click', () => {
 });
 
 //Next song
-function nextSong() {
-  songIndex < songs.length - 1 ? songIndex++ : (songIndex = 0);
-  loadSong(songs[songIndex]);
+function playNext() {
+  playNum < songs.length - 1 ? playNum++ : (playNum = 0);
+  loadSong(songs[playNum]);
   const playIsActive = player.classList.contains('active');
   playIsActive ? PlaySong() : PauseSong();
 }
-nextBtn.addEventListener('click', nextSong);
+nextBtn.addEventListener('click', playNext);
 
 //Prev song
-function prevSong() {
-  songIndex == 0 ? (songIndex = songs.length - 1) : songIndex--;
-  loadSong(songs[songIndex]);
+function playPrev() {
+  playNum == 0 ? (playNum = songs.length - 1) : playNum--;
+  loadSong(songs[playNum]);
   const playIsActive = player.classList.contains('active');
   playIsActive ? PlaySong() : PauseSong();
 }
-prevBtn.addEventListener('click', prevSong);
+prevBtn.addEventListener('click', playPrev);
 
 //Progress bar
 function updateProgress(event) {
@@ -107,4 +108,4 @@ function setProgress(event) {
 progressContainer.addEventListener('click', setProgress);
 
 //Continue play
-audio.addEventListener('ended', nextSong);
+audio.addEventListener('ended', playNext);
