@@ -17,12 +17,57 @@
   <body>
     <main id="main">
       <div class="overlay"></div>
-      <div class="modal">
+      <div class="player">
         <div class="album-pic">
-          <img src="images/pics/dontstartnow.png" alt="album-pic" />
+          <img
+            class="album-pic-img"
+            src="images/pics/dontstartnow.png"
+            alt="album-pic"
+          />
         </div>
-        <div class="player">
-          <audio src="audio/dontstartnow.mp3" controls></audio>
+        <div class="player-container">
+          <div class="player-wrap">
+            <div class="btn button-play">
+              <img
+                class="img-src"
+                src="images/player-btns/play.png"
+                alt="btn"
+              />
+            </div>
+            <div>
+              <ul class="song">
+                <li class="singer">Dua Lipa</li>
+                <li class="name">Don't start now</li>
+              </ul>
+            </div>
+            <div class="btn-change">
+              <ul>
+                <li>
+                  <div class="btn button-prev">
+                    <img src="images/player-btns/backward.png" alt="btn" />
+                  </div>
+                </li>
+                <li>
+                  <div class="btn button-next">
+                    <img src="images/player-btns/forward.png" alt="btn" />
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="length">0:00</div>
+          <div class="progress-container">
+            <!-- <div class="progress"></div> -->
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="1"
+              class="slider"
+              id="myRange"
+            />
+          </div>
+          <div class="time current">0:00</div>
         </div>
       </div>
     </main>
