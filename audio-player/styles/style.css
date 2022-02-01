@@ -206,7 +206,7 @@ body {
   font-size: 13px;
   color: rgb(193, 255, 6);
   align-self: flex-end;
-  width: 25%;
+  width: 23%;
   padding-top: 10px;
   line-height: 0;
 }
@@ -244,16 +244,16 @@ body {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 5px;
-  height: 7px;
+  width: 6px;
+  height: 8px;
   background: rgb(193, 255, 6);
   cursor: pointer;
   border-radius: 15px;
 }
 
 .slider::-moz-range-thumb {
-  width: 5px;
-  height: 7px;
+  width: 6px;
+  height: 8px;
   background: rgb(193, 255, 6);
   cursor: pointer;
   border-radius: 15px;
