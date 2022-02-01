@@ -124,6 +124,16 @@ langChange.addEventListener('click', changeBtnColor);
 function getLocalStorage() {
   if (localStorage.getItem('lang')) {
     const lang = localStorage.getItem('lang');
+    const en = document.querySelector('.en');
+    const ru = document.querySelector('.ru');
+    if (lang == 'ru') {
+      en.classList.remove('active');
+      ru.classList.add('active');
+    }
+    if (lang == 'en') {
+      ru.classList.remove('active');
+      en.classList.add('active');
+    }
     getTranslate(lang);
   }
 }
