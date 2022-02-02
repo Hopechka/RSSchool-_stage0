@@ -323,17 +323,19 @@ body {
 /*Адаптивность*/
 
 @media screen and (max-width: 425px) {
-  .modal {
-    width: 80%;
-    height: 80%;
+  .player {
+    width: 320px;
   }
-  /* .player {
-    max-height: calc(100% - 140px);
-  } */
+  .album-pic img {
+    display: none;
+  }
 }
 @media screen and (max-width: 320px) {
+  .player {
+    width: 300px;
+  }
   #main {
-    height: calc(100% - 140px); /*140рх - высота футера + маржинги*/
+    height: calc(100% - 150px); /*140рх - высота футера + маржинги*/
   }
   #footer {
     flex-direction: column;
