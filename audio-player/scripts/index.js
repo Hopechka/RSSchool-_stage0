@@ -13,10 +13,11 @@ const songLength = document.querySelector('.length');
 const current = document.querySelector('.current');
 
 //Название песен
-const songs = ['dontstartnow', 'lemonade'];
+const songs = ['dontstartnow', 'lemonade', 'pesenkamyshonka'];
 const singers = {
   dontstartnow: { name: "Don't start now", singer: 'Dua Lipa' },
   lemonade: { name: "Don't hurt Yourself", singer: 'Beyonce' },
+  pesenkamyshonka: { name: 'Песенка мышонка', singer: 'Состояние души' },
 };
 
 //Песня по умолчанию
@@ -36,7 +37,7 @@ loadSong(songs[playNum]);
 
 //Play audio
 function PlaySong() {
-  audio.currentTime = 0;
+  //audio.currentTime = 0;
   player.classList.add('active');
   albumPicImg.classList.add('active');
   audio.play();
@@ -78,11 +79,11 @@ prevBtn.addEventListener('click', playPrev);
 function updateProgress(event) {
   const { duration, currentTime } = event.srcElement; // duration - длительность, currentTime - текущее время
   const minDuration = Math.floor((duration / 60) << 0);
-  const secDuration = Math.floor(duration % 60);
+  const secDuration = Math.floor(duration % 60) << 0;
   songLength.innerHTML = `${minDuration}:${secDuration}`;
   //console.log(duration);
   const minCurrentTime = Math.floor((currentTime / 60) << 0);
-  const secCurrentTime = Math.floor(currentTime % 60);
+  const secCurrentTime = Math.floor(currentTime % 60) << 0;
   if (secCurrentTime < 10) {
     current.innerHTML = `${minCurrentTime}:0${secCurrentTime}`;
   } else {
@@ -104,8 +105,47 @@ function setProgress(event) {
   //console.log(duration);
   audio.currentTime = (clickX / width) * duration;
 }
-
 progressContainer.addEventListener('click', setProgress);
 
 //Continue play
 audio.addEventListener('ended', playNext);
+
+//keyboard control
+function keyboardControl() {
+  document.addEventListener('keydown', function (event) {
+    if (event.key == 'ArrowRight') {
+      audio.currentTime += 10;
+      PlaySong();
+    }
+    if (event.key == 'ArrowLeft') {
+      audio.currentTime -= 10;
+      PlaySong();
+    }
+  });
+  document.addEventListener('keyup', function (event) {
+    if (event.key == 'ArrowUp') {
+      PlaySong();
+    }
+    if (event.key == 'ArrowDown') {
+      PauseSong();
+    }
+    // playIsActive = player.classList.contains('active');
+    // console.log(playIsActive);
+    // if (event.code == 'Space') {
+    //   if (playIsActive) {
+    //     PauseSong();
+
+    //     console.log('Пауза');
+    //   } else {
+    //     PlaySong();
+
+    //     console.log('Плей');
+    //   }
+    // }
+  });
+}
+audio.addEventListener('loadedmetadata', keyboardControl);
+
+console.log(`Добавила переключение при помощи клавиш стрелок вверх-вниз это плей-пауза соответственно \n
+ и стрелки вправо-влево, чтобы листать. \n
+ Ваша отметка - 70 балла(ов)`);
