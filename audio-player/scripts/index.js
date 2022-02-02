@@ -111,41 +111,35 @@ progressContainer.addEventListener('click', setProgress);
 audio.addEventListener('ended', playNext);
 
 //keyboard control
-function keyboardControl() {
-  document.addEventListener('keydown', function (event) {
-    if (event.key == 'ArrowRight') {
+document.addEventListener('keydown', (e) => {
+  try {
+    // отключаем стандартный функционал клавиатуры
+    e.preventDefault();
+    // пробел
+    if (e.code == 'Space') {
+      // пуск/пауза
+      //audio.paused ? audio.play() : audio.pause();
+      audio.paused ? PlaySong() : PauseSong();
+      // enter
+    } else if (e.key == 'Enter') {
+      // стоп
+      audio.load();
+      // стрелка вправо
+    } else if (e.key == 'ArrowRight') {
+      // время воспроизведения + 10 секунд
       audio.currentTime += 10;
-      PlaySong();
-    }
-    if (event.key == 'ArrowLeft') {
+      // стрелка влево
+    } else if (e.key == 'ArrowLeft') {
+      // время воспроизведения - 10 секунд
       audio.currentTime -= 10;
-      PlaySong();
+      // стрелка вниз
     }
-  });
-  document.addEventListener('keyup', function (event) {
-    if (event.key == 'ArrowUp') {
-      PlaySong();
-    }
-    if (event.key == 'ArrowDown') {
-      PauseSong();
-    }
-    // playIsActive = player.classList.contains('active');
-    // console.log(playIsActive);
-    // if (event.code == 'Space') {
-    //   if (playIsActive) {
-    //     PauseSong();
+  } catch {
+    return;
+  }
+});
 
-    //     console.log('Пауза');
-    //   } else {
-    //     PlaySong();
-
-    //     console.log('Плей');
-    //   }
-    // }
-  });
-}
-audio.addEventListener('loadedmetadata', keyboardControl);
-
-console.log(`Добавила переключение при помощи клавиш стрелок вверх-вниз это плей-пауза соответственно \n
- и стрелки вправо-влево, чтобы листать. \n
+console.log(`Добавила переключение при помощи клавиши пробел это плей-пауза, \n
+  стрелки вправо-влево, чтобы листать, \n
+  Enter - остановить воспроизведение, чтобы листать. \n
  Ваша отметка - 70 балла(ов)`);
