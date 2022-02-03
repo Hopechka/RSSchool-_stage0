@@ -329,6 +329,9 @@ body {
   .album-pic img {
     display: none;
   }
+  .overlay {
+    display: none;
+  }
 }
 @media screen and (max-width: 320px) {
   .player {
