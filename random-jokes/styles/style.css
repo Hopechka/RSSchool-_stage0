@@ -76,3 +76,189 @@ html {
   scroll-behavior: smooth;
 }
 /*--------------------*/
+
+/* * {
+  outline: 1px solid red;
+} */
+
+/*--------------------*/
+body {
+  background: #45fefe;
+  font-family: 'Merriweather', 'Roboto', sans-serif;
+  max-width: 1440px; /* максимальная ширина экрана */
+  height: 100vh;
+  /* overflow: hidden; */
+  margin: 0 auto;
+  line-height: 1.5em;
+}
+#body.active {
+  background: #99fefe;
+}
+/*--------------------*/
+.container {
+  width: calc(100% - 40px); /* за вычетом маржинга для всего контента */
+  height: 100%;
+  box-sizing: border-box;
+  /* margin: auto; контейнер выравнен по центру(маржинги по 20рх слева и справа */
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+/*--------------------*/
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.modal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.img-colorfully {
+  max-width: 768px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.static.active {
+  display: none;
+}
+.move.active {
+  display: none;
+}
+
+@keyframes color-change {
+  0% {
+    background: #ff43ff;
+
+    transform: rotateX(0deg);
+  }
+  25% {
+    background: linear-gradient(to right, #ff43ff, #0b77ff);
+
+    transform: rotateX(90deg);
+  }
+  50% {
+    background: linear-gradient(to right, #ff43ff, #0b77ff, #00fe00);
+
+    transform: rotateX(180deg);
+  }
+  75% {
+    background: linear-gradient(to right, #ff43ff, #0b77ff, #00fe00, #fefe20);
+
+    transform: rotateX(270deg);
+  }
+  100% {
+    background: linear-gradient(
+      to right,
+      #ff43ff,
+      #0b77ff,
+      #00fe00,
+      #fefe20,
+      #ff0767
+    );
+    transform: rotateX(360deg);
+  }
+}
+button {
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #ff43ff,
+    #0b77ff,
+    #00fe00,
+    #fefe20,
+    #ff0767
+  );
+  box-shadow: 5px 5px 0 #000; /* Параметры тени */
+  position: relative; /* Относительное позиционирование */
+  left: 0; /* Положение слева */
+  top: 0; /* Положение сверху */
+  transition: 1s; /* Время анимации */
+}
+button:hover {
+  left: 5px; /* Положение слева */
+  top: 5px; /* Положение сверху */
+  box-shadow: 0 0 0 #000; /* Параметры тени */
+}
+.btn.active {
+  animation: color-change 3s 1 ease-in;
+}
+
+.jokes {
+  padding: 20px;
+}
+/*--------------------*/
+/*Подвал*/
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 70px; */
+  padding: 10px 0;
+  background: linear-gradient(
+    to right,
+    #ff43ff,
+    #0b77ff,
+    #00fe00,
+    #fefe20,
+    #ff0767
+  );
+}
+
+.data,
+.git-link {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.git-link a {
+  text-decoration: none;
+  color: black;
+}
+.git-link a:hover {
+  color: black;
+}
+
+.git-link span {
+  padding-left: 5px;
+}
+
+.git-link img {
+  width: 50px;
+  filter: brightness(0) saturate(100%);
+}
+.git-link img:hover {
+  filter: brightness(0) saturate(100%);
+}
+.school-link img {
+  width: 90px;
+}
+.data,
+.school-link {
+  padding: 0 10px 0;
+}
+
+/*--------------------*/
+/*Адаптивность*/
+
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+}
