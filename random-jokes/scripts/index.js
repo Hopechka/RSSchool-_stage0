@@ -89,7 +89,7 @@ function LangChange(lang) {
     getQuotes();
   }
 }
-
+//Кастомная кнопка
 var animateButton = function (e) {
   e.preventDefault;
   //reset animation
@@ -102,3 +102,5 @@ var animateButton = function (e) {
 };
 
 activeBtn.addEventListener('click', animateButton, false);
+
+console.log(`Ваша отметка - 65 баллов`);
