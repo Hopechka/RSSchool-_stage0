@@ -1,0 +1,427 @@
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+ol li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+html {
+  scroll-behavior: smooth;
+}
+/*--------------------*/
+
+/* * {
+  outline: 1px solid red;
+} */
+
+/*--------------------*/
+body {
+  background: #45fefe;
+  font-family: 'Merriweather', 'Roboto', sans-serif;
+  max-width: 1440px; /* максимальная ширина экрана */
+  height: 100vh;
+  /* overflow: hidden; */
+  margin: 0 auto;
+  line-height: 1.5em;
+}
+#body.active {
+  background: #99fefe;
+}
+/*--------------------*/
+.container {
+  width: calc(100% - 40px); /* за вычетом маржинга для всего контента */
+  height: 100%;
+  box-sizing: border-box;
+  /* margin: auto; контейнер выравнен по центру(маржинги по 20рх слева и справа */
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+/*--------------------*/
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.modal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.pic {
+  position: relative;
+  z-index: 1;
+  max-width: 768px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-container {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  z-index: 3;
+  top: 0;
+  right: 30px;
+}
+
+.text-container span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8em;
+}
+.cloud-text {
+  filter: invert(100%) sepia(7%) saturate(2%) hue-rotate(276deg)
+    brightness(111%) contrast(100%);
+  width: 35%;
+}
+
+.img-colorfully {
+  width: 100%;
+}
+.static.active {
+  display: none;
+}
+.move.active {
+  display: none;
+}
+
+@keyframes color-change {
+  0% {
+    background: #ff43ff;
+
+    transform: rotateX(0deg);
+  }
+  25% {
+    background: linear-gradient(to right, #ff43ff, #0b77ff);
+
+    transform: rotateX(90deg);
+  }
+  50% {
+    background: linear-gradient(to right, #ff43ff, #0b77ff, #00fe00);
+
+    transform: rotateX(180deg);
+  }
+  75% {
+    background: linear-gradient(to right, #ff43ff, #0b77ff, #00fe00, #fefe20);
+
+    transform: rotateX(270deg);
+  }
+  100% {
+    background: linear-gradient(
+      to right,
+      #ff43ff,
+      #0b77ff,
+      #00fe00,
+      #fefe20,
+      #ff0767
+    );
+    transform: rotateX(360deg);
+  }
+}
+button {
+  padding: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 10px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #ff43ff,
+    #0b77ff,
+    #00fe00,
+    #fefe20,
+    #ff0767
+  );
+  box-shadow: 5px 5px 0 #000; /* Параметры тени */
+  position: relative; /* Относительное позиционирование */
+  left: 0; /* Положение слева */
+  top: 0; /* Положение сверху */
+  transition: all 0.5s; /* Время анимации */
+}
+button:hover {
+  left: 5px; /* Положение слева */
+  top: 5px; /* Положение сверху */
+  box-shadow: 0 0 0 #000; /* Параметры тени */
+}
+button:active {
+  background: linear-gradient(
+    to left,
+    #ff43ff,
+    #0b77ff,
+    #00fe00,
+    #fefe20,
+    #ff0767
+  );
+  transform: scale(0.9);
+}
+
+.btn.active {
+  animation: color-change 3s 1 ease-in;
+}
+
+.jokes {
+  padding: 20px;
+}
+/*--------------------*/
+/*Подвал*/
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 70px; */
+  padding: 10px 0;
+  background: linear-gradient(
+    to right,
+    #ff43ff,
+    #0b77ff,
+    #00fe00,
+    #fefe20,
+    #ff0767
+  );
+}
+
+.data,
+.git-link {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.git-link a {
+  text-decoration: none;
+  color: black;
+}
+.git-link a:hover {
+  color: black;
+}
+
+.git-link span {
+  padding-left: 5px;
+}
+
+.git-link img {
+  width: 50px;
+  filter: brightness(0) saturate(100%);
+}
+.git-link img:hover {
+  filter: brightness(0) saturate(100%);
+}
+.school-link img {
+  width: 90px;
+}
+.data,
+.school-link {
+  padding: 0 10px 0;
+}
+
+/*--------------------*/
+/*Кастомная кнопка*/
+
+.bubbly-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 10px;
+}
+
+.bubbly-button:before,
+.bubbly-button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: 4;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+.bubbly-button:before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, #ff43ff, 10%, transparent 10%),
+    radial-gradient(circle, transparent 10%, #0b77ff 10%, transparent 15%),
+    radial-gradient(circle, #00fe00 10%, transparent 10%),
+    radial-gradient(circle, #fefe20 10%, transparent 10%),
+    radial-gradient(circle, transparent 5%, #ff0767 7%, transparent 10%),
+    radial-gradient(circle, #ff43ff 10%, transparent 10%),
+    radial-gradient(circle, #0b77ff 10%, transparent 10%),
+    radial-gradient(circle, #00fe00 10%, transparent 10%),
+    radial-gradient(circle, #fefe20 10%, transparent 10%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+}
+
+.bubbly-button:after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, #ff43ff, 10%, transparent 10%),
+    radial-gradient(circle, #0b77ff 10%, transparent 10%),
+    radial-gradient(circle, transparent 5%, #00fe00 7%, transparent 10%),
+    radial-gradient(circle, #fefe20 10%, transparent 10%),
+    radial-gradient(circle, #ff0767 10%, transparent 10%),
+    radial-gradient(circle, #ff43ff 10%, transparent 10%),
+    radial-gradient(circle, #0b77ff 10%, transparent 10%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+.bubbly-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+.bubbly-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
+/*--------------------*/
+/*Адаптивность*/
+
+@media screen and (max-width: 750px) {
+  .text-container {
+    right: 0;
+  }
+}
+@media screen and (max-width: 670px) {
+  .cloud-text {
+    /* width: 25%; */
+    float: right;
+  }
+  .text-container span {
+    /* font-size: 0.65em; */
+    left: 83%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .cloud-text {
+    width: 25%;
+    /* float: right; */
+  }
+  .text-container span {
+    font-size: 0.65em;
+    left: 88%;
+  }
+}
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+  .cloud-text {
+    width: 20%;
+    /* float: right; */
+  }
+  .text-container span {
+    font-size: 0.5em;
+    left: 90%;
+  }
+}
