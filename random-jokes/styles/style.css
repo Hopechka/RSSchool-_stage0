@@ -122,13 +122,39 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-.img-colorfully {
+.pic {
+  position: relative;
+  z-index: 1;
   max-width: 768px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+}
+.text-container {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  z-index: 3;
+  top: 0;
+  right: 30px;
+}
+
+.text-container span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8em;
+}
+.cloud-text {
+  filter: invert(100%) sepia(7%) saturate(2%) hue-rotate(276deg)
+    brightness(111%) contrast(100%);
+  width: 35%;
+}
+
+.img-colorfully {
+  width: 100%;
 }
 .static.active {
   display: none;
@@ -257,8 +283,41 @@ button:hover {
 /*--------------------*/
 /*Адаптивность*/
 
+@media screen and (max-width: 750px) {
+  .text-container {
+    right: 0;
+  }
+}
+@media screen and (max-width: 670px) {
+  .cloud-text {
+    /* width: 25%; */
+    float: right;
+  }
+  .text-container span {
+    /* font-size: 0.65em; */
+    left: 83%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .cloud-text {
+    width: 25%;
+    /* float: right; */
+  }
+  .text-container span {
+    font-size: 0.65em;
+    left: 88%;
+  }
+}
 @media screen and (max-width: 320px) {
   body {
     font-size: 14px;
+  }
+  .cloud-text {
+    width: 20%;
+    /* float: right; */
+  }
+  .text-container span {
+    font-size: 0.5em;
+    left: 90%;
   }
 }
