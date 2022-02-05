@@ -198,6 +198,9 @@ body {
 }
 button {
   padding: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 10px;
   text-transform: uppercase;
   border-radius: 30px;
   cursor: pointer;
@@ -213,7 +216,7 @@ button {
   position: relative; /* Относительное позиционирование */
   left: 0; /* Положение слева */
   top: 0; /* Положение сверху */
-  transition: 1s; /* Время анимации */
+  transition: all 0.5s; /* Время анимации */
 }
 button:hover {
   left: 5px; /* Положение слева */
@@ -229,6 +232,7 @@ button:active {
     #fefe20,
     #ff0767
   );
+  transform: scale(0.9);
 }
 
 .btn.active {
@@ -289,6 +293,95 @@ button:active {
 .data,
 .school-link {
   padding: 0 10px 0;
+}
+
+/*--------------------*/
+/*Кастомная кнопка*/
+
+.bubbly-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 10px;
+}
+
+.bubbly-button:before,
+.bubbly-button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: 4;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+.bubbly-button:before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, #ff43ff, 10%, transparent 10%),
+    radial-gradient(circle, transparent 10%, #0b77ff 10%, transparent 15%),
+    radial-gradient(circle, #00fe00 10%, transparent 10%),
+    radial-gradient(circle, #fefe20 10%, transparent 10%),
+    radial-gradient(circle, transparent 5%, #ff0767 7%, transparent 10%),
+    radial-gradient(circle, #ff43ff 10%, transparent 10%),
+    radial-gradient(circle, #0b77ff 10%, transparent 10%),
+    radial-gradient(circle, #00fe00 10%, transparent 10%),
+    radial-gradient(circle, #fefe20 10%, transparent 10%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+}
+
+.bubbly-button:after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, #ff43ff, 10%, transparent 10%),
+    radial-gradient(circle, #0b77ff 10%, transparent 10%),
+    radial-gradient(circle, transparent 5%, #00fe00 7%, transparent 10%),
+    radial-gradient(circle, #fefe20 10%, transparent 10%),
+    radial-gradient(circle, #ff0767 10%, transparent 10%),
+    radial-gradient(circle, #ff43ff 10%, transparent 10%),
+    radial-gradient(circle, #0b77ff 10%, transparent 10%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+.bubbly-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+.bubbly-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
 }
 
 /*--------------------*/
