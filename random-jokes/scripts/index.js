@@ -17,7 +17,7 @@ function changePicture() {
 activeBtn.addEventListener('click', changePicture);
 
 activeBtn.addEventListener('click', function () {
-  setTimeout(changePicture, 3000);
+  setTimeout(changePicture, 2000);
 });
 
 // Получение данных от API on English
