@@ -4,7 +4,7 @@ const imgStatic = document.querySelector('.static');
 const imgMove = document.querySelector('.move');
 const jokes = document.querySelector('.jokes');
 const cloudText = document.querySelector('.text-container');
-var lang = 'en';
+var lang;
 
 //Pic change
 function changePicture() {
@@ -38,28 +38,25 @@ async function getQuotes() {
 }
 getQuotes();
 
-var currentJoke = 0;
+var currentJoke = parseInt(Math.random() * 100);
 
 function showData(data) {
+  let num;
+  data.length > 1000 ? (num = 1000) : (num = 100);
   currentJoke < data.length - 1
-    ? (currentJoke = parseInt(data.length - Math.random() * 100))
+    ? (currentJoke = parseInt(data.length - Math.random() * num))
     : (currentJoke = 0);
   jokes.textContent = data[currentJoke].text;
-  window.localStorage.setItem('joke', currentJoke);
+  //window.localStorage.setItem('joke', currentJoke);
   console.log(currentJoke + 'currentJoke');
+  console.log(data.length + 'data.length ');
+  console.log(num + 'num ');
+  console.log(Math.random());
 }
 
 activeBtn.addEventListener('click', () => {
   lang == 'en' ? getData() : getQuotes();
 });
-
-function getLocalStorage() {
-  currentJoke = localStorage.getItem('joke');
-  lang = localStorage.getItem('lang');
-  //getData;
-  LangChange(lang);
-}
-window.addEventListener('load', getLocalStorage);
 
 //Dialog window
 cloudText.addEventListener('click', () => {
@@ -71,7 +68,7 @@ cloudText.addEventListener('click', () => {
     LangChange(lang);
   } else {
     if (lang == 'en') {
-      alert(`Well, whatever you want, it's your choice :)`);
+      alert(`Well, whatever..., it's your choice :)`);
     } else {
       alert(`Ну, как хотите, это Ваш выбор  :)`);
     }
@@ -83,12 +80,21 @@ function LangChange(lang) {
   if (lang == 'en') {
     activeBtn.textContent = 'We need more fun';
     getData();
-  }
-  if (lang == 'ru') {
+  } else if (lang == 'ru') {
     activeBtn.textContent = 'Нам нужно больше веселья';
     getQuotes();
   }
 }
+//-----------------------
+function getLocalStorage() {
+  //currentJoke = localStorage.getItem('joke');
+  lang = localStorage.getItem('lang');
+  LangChange(lang);
+  lang == 'en' ? getData() : getQuotes();
+}
+window.addEventListener('load', getLocalStorage);
+
+//-----------------------
 //Кастомная кнопка
 var animateButton = function (e) {
   e.preventDefault;
