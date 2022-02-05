@@ -220,6 +220,17 @@ button:hover {
   top: 5px; /* Положение сверху */
   box-shadow: 0 0 0 #000; /* Параметры тени */
 }
+button:active {
+  background: linear-gradient(
+    to left,
+    #ff43ff,
+    #0b77ff,
+    #00fe00,
+    #fefe20,
+    #ff0767
+  );
+}
+
 .btn.active {
   animation: color-change 3s 1 ease-in;
 }
