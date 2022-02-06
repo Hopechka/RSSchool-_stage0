@@ -48,10 +48,10 @@ function showData(data) {
     : (currentJoke = 0);
   jokes.textContent = data[currentJoke].text;
   //window.localStorage.setItem('joke', currentJoke);
-  console.log(currentJoke + 'currentJoke');
-  console.log(data.length + 'data.length ');
-  console.log(num + 'num ');
-  console.log(Math.random());
+  //console.log(currentJoke + 'currentJoke');
+  //console.log(data.length + 'data.length ');
+  //console.log(num + 'num ');
+  //console.log(Math.random());
 }
 
 activeBtn.addEventListener('click', () => {
