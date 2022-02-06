@@ -10,8 +10,6 @@ var lang;
 function changePicture() {
   imgMove.classList.toggle('active');
   imgStatic.classList.toggle('active');
-  //activeBtn.classList.toggle('active');
-  body.classList.toggle('active');
 }
 
 activeBtn.addEventListener('click', changePicture);
