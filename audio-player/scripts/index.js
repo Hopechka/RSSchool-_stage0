@@ -132,7 +132,12 @@ document.addEventListener('keydown', (e) => {
     } else if (e.key == 'ArrowLeft') {
       // время воспроизведения - 10 секунд
       audio.currentTime -= 10;
-      // стрелка вниз
+    } else if (e.key == 'ArrowUp') {
+      // стрелка вверх
+      playNext();
+    } else if (e.key == 'ArrowDown') {
+      // стрелка ввниз
+      playPrev();
     }
   } catch {
     return;
