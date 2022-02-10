@@ -1,3 +1,8 @@
+:root {
+  --text-color: #70a751;
+  --text-shadow: 1px 1px 20px #c2cc54;
+}
+
 /*Обнуление*/
 * {
   padding: 0;
@@ -84,33 +89,100 @@ html {
 
 /*--------------------*/
 
+body {
+  background: url(../images/bg.gif) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: var(--text-color);
+  font-family: 'Yanone Kaffeesatz', 'Roboto', sans-serif;
+  font-size: 20px;
+  /* background-origin: border-box; */
+  /* position: relative; */
+}
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/*--------------------*/
+/*Рекорд и время*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 8vh;
+  box-sizing: border-box;
+}
+.score > span,
+.time > span {
+  text-shadow: var(--text-shadow);
+}
+/*--------------------*/
+/*Игра*/
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 16vh);
+}
+.game {
+  flex-basis: 64vw;
+  height: 76vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.memory-card {
+  width: 23%;
+  height: auto;
+  /* height: calc(33.333% - 10px); */
+  /* margin: 5px; */
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: var(--text-color);
+}
 /*--------------------*/
 /*Подвал*/
-/*#footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-   
-    padding: 10px 0;
-    background: none
-  }*/
 #footer {
-  position: fixed;
-  width: 100%;
-  bottom: calc(100% - (100%-50px));
-  background-color: rgba(0, 0, 0, 0.5);
-  color: black;
+  height: 8vh;
+  /* position: fixed; */
+  margin: auto;
+  display: flex;
+  /* max-width: 1024px; */
+  /* width: 100%; */
+  /* bottom: calc(100% - (100%-50px)); */
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--text-color);
+  text-shadow: var(--text-shadow);
+  /* padding: 10px 0; */
+  box-sizing: border-box;
+  background: url(../images/bg.gif) no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-content: center;
+  flex-grow: 1;
 }
 
 .data,
-.git-link {
+.git-link,
+.school-link {
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -118,10 +190,12 @@ html {
 
 .git-link a {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
+  text-shadow: var(--text-shadow);
+  opacity: 0.9;
 }
 .git-link a:hover {
-  color: black;
+  opacity: 1;
 }
 
 .git-link span {
@@ -130,15 +204,53 @@ html {
 
 .git-link img {
   width: 50px;
-  filter: brightness(0) saturate(100%);
+  filter: invert(45%) sepia(13%) saturate(1802%) hue-rotate(64deg)
+    brightness(100%) contrast(81%);
+  opacity: 0.9;
 }
-.git-link img:hover {
-  filter: brightness(0) saturate(100%);
+.git-link img:hover,
+.school-link img:hover {
+  opacity: 1;
 }
 .school-link img {
   width: 90px;
+  filter: invert(58%) sepia(32%) saturate(643%) hue-rotate(55deg)
+    brightness(97%) contrast(84%);
+  opacity: 0.9;
 }
+
 .data,
 .school-link {
   padding: 0 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  .git-link img {
+    width: 40px;
+  }
+  .school-link img {
+    width: 50px;
+  }
+  main {
+    min-height: calc(100vh - 16vh);
+  }
+}
+@media screen and (max-width: 600px) {
+  .game {
+    flex-basis: 100vw;
+  }
+}
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 16px;
+  }
+  .git-link img {
+    width: 30px;
+  }
+  .school-link img {
+    width: 40px;
+  }
 }

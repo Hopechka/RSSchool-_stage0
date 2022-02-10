@@ -9,35 +9,173 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Yanone+Kaffeesatz:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <title>Memory game</title>
   </head>
   <body>
-    <main>Game</main>
-    <footer id="footer">
-      <div class="footer-container">
-        <div class="data">2022</div>
-        <div class="git-link">
-          <div>
-            <a href="https://github.com/Hopechka" target="_blank"
-              ><img src="images/github_logo.png" alt="github_logo"
+    <div class="container">
+      <header class="header">
+        <div class="score"><span>score: </span><span>00</span></div>
+        <div class="time"><span>time: </span><span>0:00</span></div>
+      </header>
+      <main>
+        <section class="game">
+          <div class="memory-card">
+            <img
+              class="front-face"
+              src="pictures/bird-man.png"
+              alt="Bird man"
+            />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img
+              class="front-face"
+              src="pictures/cucumber.png"
+              alt="Cucumber"
+            />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img class="front-face" src="pictures/jerry.png" alt="Jerry" />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img
+              class="front-face"
+              src="pictures/mr-poopybutthole.png"
+              alt="Mr. poopybutthole"
+            />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img
+              class="front-face"
+              src="pictures/rick-and-morty.png"
+              alt="Rick and Morty"
+            />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img class="front-face" src="pictures/rick.png" alt="Rick" />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img
+              class="front-face"
+              src="pictures/bird-man.png"
+              alt="Bird man"
+            />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img
+              class="front-face"
+              src="pictures/cucumber.png"
+              alt="Cucumber"
+            />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img class="front-face" src="pictures/jerry.png" alt="Jerry" />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img
+              class="front-face"
+              src="pictures/mr-poopybutthole.png"
+              alt="Mr. poopybutthole"
+            />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img
+              class="front-face"
+              src="pictures/rick-and-morty.png"
+              alt="Rick and Morty"
+            />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+          <div class="memory-card">
+            <img class="front-face" src="pictures/rick.png" alt="Rick" />
+            <img
+              class="back-face"
+              src="pictures/cover-rick-and-morty.png"
+              alt="Memory Card"
+            />
+          </div>
+        </section>
+      </main>
+      <footer id="footer">
+        <div class="footer-container">
+          <div class="data">2022</div>
+          <div class="git-link">
+            <div>
+              <a href="https://github.com/Hopechka" target="_blank"
+                ><img src="images/github_logo.png" alt="github_logo"
+              /></a>
+            </div>
+            <div>
+              <a href="https://github.com/Hopechka" target="_blank"
+                ><span>Hopechka</span></a
+              >
+            </div>
+          </div>
+          <div class="school-link">
+            <a href="https://rs.school/js-stage0/" target="_blank"
+              ><img src="images/rs_school_js.svg" alt="rs_school_js logo"
             /></a>
           </div>
-          <div>
-            <a href="https://github.com/Hopechka" target="_blank"
-              ><span>Hopechka</span></a
-            >
-          </div>
         </div>
-        <div class="school-link">
-          <a href="https://rs.school/js-stage0/" target="_blank"
-            ><img src="images/rs_school_js.svg" alt="rs_school_js logo"
-          /></a>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
+
     <script src="scripts/index.js"></script>
   </body>
 </html>
