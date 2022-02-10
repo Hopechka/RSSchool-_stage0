@@ -1,0 +1,144 @@
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+ol li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+html {
+  scroll-behavior: smooth;
+}
+/*--------------------*/
+
+* {
+  outline: 1px solid red;
+}
+
+/*--------------------*/
+
+/*--------------------*/
+/*Подвал*/
+/*#footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+    padding: 10px 0;
+    background: none
+  }*/
+#footer {
+  position: fixed;
+  width: 100%;
+  bottom: calc(100% - (100%-50px));
+  background-color: rgba(0, 0, 0, 0.5);
+  color: black;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.data,
+.git-link {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.git-link a {
+  text-decoration: none;
+  color: black;
+}
+.git-link a:hover {
+  color: black;
+}
+
+.git-link span {
+  padding-left: 5px;
+}
+
+.git-link img {
+  width: 50px;
+  filter: brightness(0) saturate(100%);
+}
+.git-link img:hover {
+  filter: brightness(0) saturate(100%);
+}
+.school-link img {
+  width: 90px;
+}
+.data,
+.school-link {
+  padding: 0 10px 0;
+}
