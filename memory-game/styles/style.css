@@ -83,9 +83,9 @@ html {
 }
 /*--------------------*/
 
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 
 /*--------------------*/
 
@@ -134,14 +134,21 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
+  perspective: 1000px; /*насколько далеко в zплоскости находится объект от пользователя*/
 }
+
 .memory-card {
   width: 23%;
   height: auto;
-  /* height: calc(33.333% - 10px); */
-  /* margin: 5px; */
   position: relative;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transform-style: preserve-3d; /*чтобы расположить их в трехмерном пространстве*/
+  transition: transform 0.5s; /*чтобы создать эффект движения*/
+}
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
 }
 
 .front-face,
@@ -152,7 +159,16 @@ main {
   position: absolute;
   border-radius: 5px;
   background: var(--text-color);
+  backface-visibility: hidden;
 }
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg); /* вращает карту на 180 градусов*/
+}
+
 /*--------------------*/
 /*Подвал*/
 #footer {
