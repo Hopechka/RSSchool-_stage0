@@ -18,12 +18,13 @@ let flipCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
 let sum = 0;
+let numberOfMoves = 0;
 
 function gameLogic() {
   if (lockBoard) return;
   if (this === firstCard) return;
   this.classList.add('flip');
-
+  numberOfMoves++;
   if (!flipCard) {
     flipCard = true;
     firstCard = this;
@@ -104,9 +105,9 @@ function timer() {
 function showFinishWindow() {
   finishWindow.classList.add('active');
   overlay.classList.remove('hidden');
-  record.innerHTML = `You won!
-  Your score: ${count}. 
-  \n Your time: ${time} seconds`;
+  record.innerHTML = `You won! <br \/>Number of moves per game: ${numberOfMoves} <br \/> 
+  Your score: ${count}. <br \/>
+  Your time: ${time} seconds`;
 }
 function repeatGame() {
   finishWindow.classList.remove('active');
@@ -114,6 +115,7 @@ function repeatGame() {
   time = 0;
   count = 0;
   sum = 0;
+  numberOfMoves = 0;
   score.innerHTML = `score: ${count}`;
   memoryCards.forEach((card) => card.classList.remove('flip'));
   (function shuffle() {
