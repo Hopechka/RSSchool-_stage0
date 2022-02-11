@@ -12,12 +12,21 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Yanone+Kaffeesatz:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="images/favicons/rick-and-morty.png" />
     <title>Memory game</title>
   </head>
   <body>
     <div class="container">
       <header class="header">
         <div class="score"><span>score: </span><span>00</span></div>
+        <div class="audio">
+          <img
+            src="images/volume-off-solid.svg"
+            alt="audio"
+            class="audio-icon"
+          />
+          <audio src="audio/song.mp3" class="song"></audio>
+        </div>
         <div class="time">
           <span>time: </span><span>00</span><span> sec</span>
         </div>

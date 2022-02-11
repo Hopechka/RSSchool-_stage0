@@ -8,6 +8,9 @@ const modalWindow = document.querySelector('.modal-window');
 const finishWindow = document.querySelector('.finish-window');
 const overlay = document.querySelector('.overlay');
 const record = document.querySelector('.record');
+const audioBtn = document.querySelector('.audio');
+const imgSrc = document.querySelector('.audio-icon');
+const song = document.querySelector('.song');
 
 let count = 0;
 let time = 0;
@@ -123,3 +126,23 @@ function repeatGame() {
   memoryCards.forEach((card) => card.addEventListener('click', gameLogic));
 }
 repeatButton.addEventListener('click', repeatGame);
+
+function musicPlay() {
+  song.currentTime = 0;
+  audioBtn.classList.add('active');
+  song.play();
+  imgSrc.src = 'images/volume-xmark-solid.svg';
+  imgSrc.style.width = '40px';
+}
+function musicStop() {
+  audioBtn.classList.remove('active');
+  song.pause();
+  imgSrc.src = 'images/volume-off-solid.svg';
+  imgSrc.style.width = '23px';
+}
+audioBtn.addEventListener('click', () => {
+  const playIsActive = audioBtn.classList.contains('active');
+  playIsActive ? musicStop() : musicPlay();
+});
+
+song.addEventListener('ended', musicPlay);

@@ -118,6 +118,12 @@ body {
 .time > span {
   text-shadow: 1px 1px 20px linear-gradient(to right, #70a751, #c2cc54);
 }
+.audio-icon {
+  filter: invert(45%) sepia(13%) saturate(1802%) hue-rotate(64deg)
+    brightness(100%) contrast(81%);
+  width: 25px;
+}
+
 /*--------------------*/
 /*Игра*/
 main {
