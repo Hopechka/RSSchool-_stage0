@@ -116,7 +116,7 @@ body {
 }
 .score > span,
 .time > span {
-  text-shadow: var(--text-shadow);
+  text-shadow: 1px 1px 20px linear-gradient(to right, #70a751, #c2cc54);
 }
 /*--------------------*/
 /*Игра*/
@@ -163,6 +163,9 @@ main {
 }
 .front-face {
   transform: rotateY(180deg);
+  background: none;
+  border: 1px solid #c2cc54;
+  box-shadow: var(--text-shadow);
 }
 
 .memory-card.flip {
