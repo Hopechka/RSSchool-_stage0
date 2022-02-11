@@ -148,3 +148,21 @@ audioBtn.addEventListener('click', () => {
 });
 
 song.addEventListener('ended', musicPlay);
+
+//кеширование
+const pic = [
+  'mr-poopybutthole',
+  'cucumber',
+  'bird-man',
+  'jerry',
+  'cover-rick-and-morty',
+  'morty',
+  'cat',
+];
+function preloadImages() {
+  for (let i = 1; i <= pic.length; i++) {
+    const img = new Image();
+    img.src = `./pictures/${pic[i]}.png`;
+  }
+}
+preloadImages();
