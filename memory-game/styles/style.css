@@ -83,9 +83,9 @@ html {
 }
 /*--------------------*/
 
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 
 /*--------------------*/
 
@@ -197,12 +197,25 @@ main {
   border: 1px solid #c2cc54;
   border-radius: 8px;
   box-shadow: var(--text-shadow);
-  color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--text-color);
   font-size: 20px;
 }
 
 button {
   width: 50%;
+  color: var(--text-color);
+  background: black;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #c2cc54;
+  transform: scale(1);
+}
+button:hover {
+  box-shadow: var(--text-shadow);
+}
+button:active {
+  transform: scale(0.95);
 }
 
 .overlay.hidden,
@@ -226,10 +239,18 @@ button {
   border: 1px solid #c2cc54;
   border-radius: 8px;
   box-shadow: var(--text-shadow);
-  color: black;
+  color: var(--text-color);
+  text-shadow: var(--text-shadow);
   font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-
+h2 {
+  text-transform: uppercase;
+}
+.record {
+  text-align: center;
+  line-height: 1.5;
+}
 /*--------------------*/
 /*Подвал*/
 #footer {
@@ -240,7 +261,7 @@ button {
   /* max-width: 1024px; */
   /* width: 100%; */
   /* bottom: calc(100% - (100%-50px)); */
-  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.3); */
   color: var(--text-color);
   text-shadow: var(--text-shadow);
   /* padding: 10px 0; */
@@ -268,11 +289,9 @@ button {
 .git-link a {
   text-decoration: none;
   color: var(--text-color);
-  text-shadow: var(--text-shadow);
-  opacity: 0.9;
 }
-.git-link a:hover {
-  opacity: 1;
+.git-link a > span:hover {
+  box-shadow: var(--text-shadow);
 }
 
 .git-link span {
@@ -320,6 +339,9 @@ button {
     flex-basis: 100vw;
   }
   .modal-window {
+    width: 80%;
+  }
+  .finish-window.active {
     width: 80%;
   }
 }

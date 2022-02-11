@@ -3,15 +3,18 @@ const memoryCards = document.querySelectorAll('.memory-card');
 const score = document.querySelector('.score');
 const timeScore = document.querySelector('.time');
 const startButton = document.querySelector('.start');
+const repeatButton = document.querySelector('.play-again');
 const modalWindow = document.querySelector('.modal-window');
+const finishWindow = document.querySelector('.finish-window');
 const overlay = document.querySelector('.overlay');
+const record = document.querySelector('.record');
 
 let count = 0;
-let timeStart = 1;
 let time = 0;
 let flipCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
+let sum = 0;
 
 function gameLogic() {
   if (lockBoard) return;
@@ -44,6 +47,10 @@ function stopFlipCard() {
   resetBoard();
   count += 10;
   score.innerHTML = `score: ${count}`;
+  sum++;
+  if (sum == 6) {
+    showFinishWindow();
+  }
 }
 
 function comebackFlipCard() {
@@ -60,7 +67,21 @@ function comebackFlipCard() {
   } else count = 0;
 }
 
+//чтобы на одну карту не навешивались, при условии лишние классы
+function resetBoard() {
+  [flipCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+(function shuffle() {
+  memoryCards.forEach((card) => {
+    let ramdomPos = Math.floor(Math.random() * 12);
+    card.style.order = ramdomPos;
+  });
+})();
+
 memoryCards.forEach((card) => card.addEventListener('click', gameLogic));
+
 //прячет модальное окно старта
 function hiddenClass() {
   modalWindow.classList.add('hidden');
@@ -74,32 +95,31 @@ startButton.addEventListener('click', function () {
 function timer() {
   time++;
   timeScore.innerHTML = `time: ${time} sec`;
-  console.log(time);
-}
-//чтобы на одну карту не навешивались, при условии лишние классы
-function resetBoard() {
-  [flipCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
+  //console.log(time);
 }
 
-// if (timeStart === 1) {
-//   memoryCards.forEach((card) =>
-//     card.addEventListener('click', function () {
-//       setInterval(timer, 1000);
-//     })
-//   );
-//   timeStart -= 1;
-//   console.log('я тут');
-//   console.log(timeStart);
-// } else if (timeStart < 1) {
-//   console.log('теперь я тут -1');
-//   console.log(timeStart);
-// }
+function showFinishWindow() {
+  finishWindow.classList.add('active');
+  overlay.classList.remove('hidden');
+  record.innerHTML = `You won!
+  Your score: ${count}. 
+  \n Your time: ${time} seconds`;
+}
+function repeatGame() {
+  finishWindow.classList.remove('active');
+  overlay.classList.add('hidden');
+  time = 0;
+  count = 0;
+  sum = 0;
+  score.innerHTML = `score: ${count}`;
+  memoryCards.forEach((card) => card.classList.remove('flip'));
+  (function shuffle() {
+    memoryCards.forEach((card) => {
+      let ramdomPos = Math.floor(Math.random() * 12);
+      card.style.order = ramdomPos;
+    });
+  })();
 
-// timer = setInterval(function () {
-//   time++;
-//   timeScore.innerHTML = `time: ${time} sec`;
-// }, 1000);
-// activeBtn.addEventListener('click', function () {
-//   setTimeout(changePicture, 2000);
-// });
+  memoryCards.forEach((card) => card.addEventListener('click', gameLogic));
+}
+repeatButton.addEventListener('click', repeatGame);
