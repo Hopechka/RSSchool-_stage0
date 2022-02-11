@@ -83,9 +83,9 @@ html {
 }
 /*--------------------*/
 
-/* * {
+* {
   outline: 1px solid red;
-} */
+}
 
 /*--------------------*/
 
@@ -135,6 +135,8 @@ main {
   flex-wrap: wrap;
   gap: 10px;
   perspective: 1000px; /*насколько далеко в zплоскости находится объект от пользователя*/
+  z-index: 0;
+  position: relative;
 }
 
 .memory-card {
@@ -170,6 +172,62 @@ main {
 
 .memory-card.flip {
   transform: rotateY(180deg); /* вращает карту на 180 градусов*/
+}
+/*--------------------*/
+/*Модальное окно в начале */
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 8vh;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+.modal-window {
+  position: absolute;
+  width: 30%;
+  height: 50%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #c2cc54;
+  border-radius: 8px;
+  box-shadow: var(--text-shadow);
+  color: black;
+  font-size: 20px;
+}
+
+button {
+  width: 50%;
+}
+
+.overlay.hidden,
+.modal-window.hidden {
+  display: none;
+}
+/*--------------------*/
+/*Модальное окно в конце */
+.finish-window {
+  display: none;
+}
+.finish-window.active {
+  position: absolute;
+  width: 30%;
+  height: 50%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #c2cc54;
+  border-radius: 8px;
+  box-shadow: var(--text-shadow);
+  color: black;
+  font-size: 20px;
 }
 
 /*--------------------*/
@@ -260,6 +318,9 @@ main {
 @media screen and (max-width: 600px) {
   .game {
     flex-basis: 100vw;
+  }
+  .modal-window {
+    width: 80%;
   }
 }
 @media screen and (max-width: 320px) {

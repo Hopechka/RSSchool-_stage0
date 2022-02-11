@@ -17,12 +17,22 @@
   <body>
     <div class="container">
       <header class="header">
-        <div class="score">
-          <span>points: </span><span class="score">00</span>
+        <div class="score"><span>score: </span><span>00</span></div>
+        <div class="time">
+          <span>time: </span><span>00</span><span> sec</span>
         </div>
-        <div class="time"><span>time: </span><span>0:00</span></div>
       </header>
       <main>
+        <div class="modal-window">
+          <div><span>Welcome to the game</span></div>
+          <button class="start">Start</button>
+        </div>
+        <div class="finish-window">
+          <div><h2>Congratulations</h2></div>
+          <div class="record"></div>
+          <button class="play-again">Play Again!</button>
+        </div>
+        <div class="overlay"></div>
         <section class="game">
           <div class="memory-card" data-game="bird-man">
             <img
