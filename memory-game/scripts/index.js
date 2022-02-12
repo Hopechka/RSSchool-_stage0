@@ -19,6 +19,8 @@ let firstCard, secondCard;
 let lockBoard = false;
 let sum = 0;
 let numberOfMoves = 0;
+let scoreTable = JSON.parse(localStorage.getItem('scoreTable') || '[]');
+console.log(scoreTable);
 
 function gameLogic() {
   if (lockBoard) return;
@@ -108,6 +110,15 @@ function showFinishWindow() {
   record.innerHTML = `You won! <br \/>Number of moves per game: ${numberOfMoves} <br \/> 
   Your score: ${count}. <br \/>
   Your time: ${time} seconds`;
+  let scoreTableRow = {};
+  scoreTableRow.moves = numberOfMoves;
+  scoreTableRow.score = count;
+  scoreTableRow.gameTime = time;
+  scoreTable.push(scoreTableRow);
+  if (scoreTable.length > 10) {
+    scoreTable.shift();
+  }
+  window.localStorage.setItem('scoreTable', JSON.stringify(scoreTable));
 }
 function repeatGame() {
   finishWindow.classList.remove('active');
@@ -163,7 +174,6 @@ function preloadImages() {
   for (let i = 0; i < pic.length; i++) {
     const img = new Image();
     img.src = `pictures/${pic[i]}.png`;
-    console.log(img);
   }
 }
 preloadImages();
