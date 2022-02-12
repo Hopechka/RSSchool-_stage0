@@ -283,6 +283,9 @@ th {
   padding: 2px;
   text-align: center;
 }
+tr:nth-child(even) {
+  background: rgba(194, 204, 84, 0.3);
+}
 
 /*--------------------*/
 /*Подвал*/
