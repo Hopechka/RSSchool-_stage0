@@ -160,9 +160,10 @@ const pic = [
   'cat',
 ];
 function preloadImages() {
-  for (let i = 1; i <= pic.length; i++) {
+  for (let i = 0; i < pic.length; i++) {
     const img = new Image();
-    img.src = `./pictures/${pic[i]}.png`;
+    img.src = `pictures/${pic[i]}.png`;
+    console.log(img);
   }
 }
 preloadImages();
