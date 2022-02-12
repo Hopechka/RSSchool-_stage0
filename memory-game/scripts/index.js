@@ -11,6 +11,10 @@ const record = document.querySelector('.record');
 const audioBtn = document.querySelector('.audio');
 const imgSrc = document.querySelector('.audio-icon');
 const song = document.querySelector('.song');
+const tableBody = document.querySelector('tbody');
+const tableHead = document.querySelector('thead');
+const rows = document.querySelectorAll('row');
+const table = document.getElementById('game-table');
 
 let count = 0;
 let time = 0;
@@ -19,6 +23,7 @@ let firstCard, secondCard;
 let lockBoard = false;
 let sum = 0;
 let numberOfMoves = 0;
+let scoreTable = JSON.parse(localStorage.getItem('scoreTable') || '[]');
 
 function gameLogic() {
   if (lockBoard) return;
@@ -37,6 +42,7 @@ function gameLogic() {
   }
 }
 
+//проверка на совпадение
 function checkTheSame() {
   if (firstCard.dataset.game === secondCard.dataset.game) {
     stopFlipCard();
@@ -45,6 +51,7 @@ function checkTheSame() {
   comebackFlipCard();
 }
 
+//оставить карты перевернутыми, если совпали
 function stopFlipCard() {
   firstCard.removeEventListener('click', gameLogic);
   secondCard.removeEventListener('click', gameLogic);
@@ -57,6 +64,7 @@ function stopFlipCard() {
   }
 }
 
+//перевернуть карты обратно, если не совпали
 function comebackFlipCard() {
   lockBoard = true;
   setTimeout(() => {
@@ -77,6 +85,7 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 }
 
+//перемешивание карт
 (function shuffle() {
   memoryCards.forEach((card) => {
     let ramdomPos = Math.floor(Math.random() * 12);
@@ -95,6 +104,7 @@ startButton.addEventListener('click', hiddenClass);
 startButton.addEventListener('click', function () {
   setInterval(timer, 1000);
 });
+
 //запускает таймер
 function timer() {
   time++;
@@ -102,13 +112,27 @@ function timer() {
   //console.log(time);
 }
 
+//окошко после игры с таблицей результатов
 function showFinishWindow() {
   finishWindow.classList.add('active');
   overlay.classList.remove('hidden');
   record.innerHTML = `You won! <br \/>Number of moves per game: ${numberOfMoves} <br \/> 
-  Your score: ${count}. <br \/>
-  Your time: ${time} seconds`;
+  Your score: ${count}. Your time: ${time} seconds`;
+
+  let scoreTableRow = {};
+  scoreTableRow.moves = numberOfMoves;
+  scoreTableRow.score = count;
+  scoreTableRow.gameTime = time;
+  scoreTable.unshift(scoreTableRow);
+  if (scoreTable.length > 10) {
+    scoreTable.pop();
+  }
+  window.localStorage.setItem('scoreTable', JSON.stringify(scoreTable));
+
+  tableFilling(scoreTable);
 }
+
+//играть снова
 function repeatGame() {
   finishWindow.classList.remove('active');
   overlay.classList.add('hidden');
@@ -126,9 +150,12 @@ function repeatGame() {
   })();
 
   memoryCards.forEach((card) => card.addEventListener('click', gameLogic));
+  resetTable();
+  addTableHead();
 }
 repeatButton.addEventListener('click', repeatGame);
 
+//аудио-соправождение игры
 function musicPlay() {
   song.currentTime = 0;
   audioBtn.classList.add('active');
@@ -160,9 +187,48 @@ const pic = [
   'cat',
 ];
 function preloadImages() {
-  for (let i = 1; i <= pic.length; i++) {
+  for (let i = 0; i < pic.length; i++) {
     const img = new Image();
-    img.src = `./pictures/${pic[i]}.png`;
+    img.src = `pictures/${pic[i]}.png`;
   }
 }
 preloadImages();
+//удаление строк из таблицы
+function resetTable() {
+  let rowCount = table.rows.length;
+  for (var i = 0; i < rowCount; i++) {
+    table.deleteRow(0);
+  }
+}
+//добавила заголовок таблицы
+function addTableHead() {
+  let row = document.createElement('tr');
+  let row_data_1 = document.createElement('th');
+  row_data_1.innerHTML = 'Moves';
+  let row_data_2 = document.createElement('th');
+  row_data_2.innerHTML = 'Score';
+  let row_data_3 = document.createElement('th');
+  row_data_3.innerHTML = 'Game time';
+
+  row.appendChild(row_data_1);
+  row.appendChild(row_data_2);
+  row.appendChild(row_data_3);
+  tableHead.appendChild(row);
+}
+//заполнение таблицы
+function tableFilling(obj) {
+  obj.forEach(function (index) {
+    let row = document.createElement('tr');
+    let row_data_1 = document.createElement('td');
+    row_data_1.innerHTML = `${index['moves']}`;
+    let row_data_2 = document.createElement('td');
+    row_data_2.innerHTML = `${index['score']}`;
+    let row_data_3 = document.createElement('td');
+    row_data_3.innerHTML = `${index['gameTime']}`;
+
+    row.appendChild(row_data_1);
+    row.appendChild(row_data_2);
+    row.appendChild(row_data_3);
+    tableBody.appendChild(row);
+  });
+}

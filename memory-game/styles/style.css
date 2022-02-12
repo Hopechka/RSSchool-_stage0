@@ -235,8 +235,8 @@ button:active {
 }
 .finish-window.active {
   position: absolute;
-  width: 30%;
-  height: 50%;
+  width: 40%;
+  height: 70%;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -250,6 +250,10 @@ button:active {
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+.finish-window.active > div,
+.play-again {
+  padding: 5px 0;
+}
 h2 {
   text-transform: uppercase;
 }
@@ -257,6 +261,32 @@ h2 {
   text-align: center;
   line-height: 1.5;
 }
+/*--------------------*/
+/*Таблица результатов */
+.score-table {
+  width: 100%;
+  overflow: hidden;
+}
+table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse; /* равномерные границы таблицы без дублирования */
+}
+tr {
+  font-size: 1em;
+}
+
+td,
+th {
+  border: 1px solid #c2cc54;
+  font-size: 0.8em;
+  padding: 2px;
+  text-align: center;
+}
+tr:nth-child(even) {
+  background: rgba(194, 204, 84, 0.3);
+}
+
 /*--------------------*/
 /*Подвал*/
 #footer {
