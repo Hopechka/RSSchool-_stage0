@@ -108,3 +108,4 @@ var animateButton = function (e) {
 activeBtn.addEventListener('click', animateButton, false);
 
 console.log(`Ваша отметка - 65 баллов`);
+alert(`Язык цитаты изменяется нажатием на текстовое облако у персожана`);
