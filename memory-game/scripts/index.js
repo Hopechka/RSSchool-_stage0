@@ -232,3 +232,6 @@ function tableFilling(obj) {
     tableBody.appendChild(row);
   });
 }
+console.log(`Ваша отметка - 70 балла(ов) \n
+Все пункты выполнены полностью!
+`);
