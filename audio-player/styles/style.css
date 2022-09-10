@@ -1,0 +1,349 @@
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+ol li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+html {
+  scroll-behavior: smooth;
+}
+/*--------------------*/
+
+/*Помогает следить за границами*/
+/* * {
+  outline: 1px solid red;
+} */
+/*--------------------*/
+
+body {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(40, 40, 40),
+    rgb(133, 133, 133)
+  );
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  color: white;
+  max-width: 1440px; /* максимальная ширина экрана */
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  line-height: 1.5em;
+}
+
+#main {
+  width: 100%;
+  height: calc(100% - 90px);
+  border: 2px solid none;
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  background: url(../images/pics/dontstartnow.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-origin: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+  max-width: 320px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid none;
+  overflow: hidden;
+}
+
+.album-pic {
+  display: flex;
+  justify-content: center;
+}
+.album-pic img {
+  max-width: 100%;
+  height: auto;
+  transition: 1s;
+}
+.album-pic-img.active {
+  transform: scale(1.2);
+}
+.player-container {
+  padding-top: 10px;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(40, 40, 40),
+    rgb(133, 133, 133)
+  );
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+}
+.player-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.img-src {
+  width: 50px;
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+}
+.img-src:hover {
+  filter: invert(100%) sepia(6%) saturate(523%) hue-rotate(91deg)
+    brightness(94%) contrast(87%);
+}
+.button-prev img,
+.button-next img {
+  width: 30px;
+  cursor: pointer;
+  filter: invert(100%) sepia(6%) saturate(523%) hue-rotate(91deg)
+    brightness(94%) contrast(87%);
+}
+.button-prev img:hover,
+.button-next img:hover {
+  opacity: 0.75;
+}
+.singer {
+  color: rgb(193, 255, 6);
+  font-size: 20px;
+}
+.name {
+  font-size: 17px;
+}
+
+.length {
+  font-size: 13px;
+  color: rgb(193, 255, 6);
+  align-self: flex-end;
+  width: 23%;
+  padding-top: 10px;
+  line-height: 0;
+}
+
+.current {
+  font-size: 13px;
+  align-self: flex-end;
+  width: 85%;
+  padding-bottom: 10px;
+  line-height: 1em;
+}
+.progress-container {
+  /* background: black; */
+  width: 70%;
+  /* height: 5px; */
+  /* cursor: pointer; */
+}
+
+.progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  background: black;
+  outline: none;
+  opacity: 0.7;
+
+  /* -webkit-transition: .2s; */
+  /* transition: opacity .2s; */
+}
+
+.progress:hover {
+  opacity: 1;
+}
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 6px;
+  height: 8px;
+  background: rgb(193, 255, 6);
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.progress::-moz-range-thumb {
+  width: 6px;
+  height: 8px;
+  background: rgb(193, 255, 6);
+  cursor: pointer;
+  border-radius: 15px;
+}
+/*.album-pic {
+  width: 100%;
+  height: 80%;
+  background: url(../images/pics/dontstartnow.png) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-origin: border-box;
+  position: relative;
+  z-index: 3;
+}*/
+
+/*--------------------*/
+.container {
+  width: calc(100% - 40px); /* за вычетом маржинга для всего контента */
+  box-sizing: border-box;
+  margin: auto; /* контейнер выравнен по центру(маржинги по 20рх слева и справа */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/*Подвал*/
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  margin: 10px 0;
+}
+
+.data,
+.git-link {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.git-link a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.git-link a:hover {
+  color: black;
+}
+
+.git-link span {
+  padding-left: 5px;
+}
+
+.git-link img {
+  width: 50px;
+  filter: brightness(0) saturate(100%);
+}
+.git-link img:hover {
+  filter: brightness(0) saturate(100%);
+}
+.school-link img {
+  width: 90px;
+}
+
+/*--------------------*/
+/*Адаптивность*/
+
+@media screen and (max-width: 425px) {
+  .player {
+    width: 320px;
+  }
+  .album-pic img {
+    display: none;
+  }
+  .overlay {
+    display: none;
+  }
+}
+@media screen and (max-width: 320px) {
+  .player {
+    width: 300px;
+  }
+  #main {
+    height: calc(100% - 150px); /*140рх - высота футера + маржинги*/
+  }
+  #footer {
+    flex-direction: column;
+    gap: 10px;
+    height: 120px;
+  }
+}
+/*--------------------*/

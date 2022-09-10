@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" href="images/favicone/headphones.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Audio player</title>
+  </head>
+  <body>
+    <main id="main">
+      <div class="overlay"></div>
+      <div class="player">
+        <div class="album-pic">
+          <img
+            class="album-pic-img"
+            src="images/pics/dontstartnow.png"
+            alt="album-pic"
+          />
+        </div>
+        <div class="player-container">
+          <div class="player-wrap">
+            <div class="btn button-play">
+              <img
+                class="img-src"
+                src="images/player-btns/play.png"
+                alt="btn"
+              />
+            </div>
+            <div>
+              <ul class="song">
+                <li class="singer">Dua Lipa</li>
+                <li class="name">Don't start now</li>
+              </ul>
+            </div>
+            <div class="btn-change">
+              <ul>
+                <li>
+                  <div class="btn button-prev">
+                    <img src="images/player-btns/backward.png" alt="btn" />
+                  </div>
+                </li>
+                <li>
+                  <div class="btn button-next">
+                    <img src="images/player-btns/forward.png" alt="btn" />
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div><audio class="audio" src="audio/dontstartnow.mp3"></audio></div>
+          <div class="length">0:00</div>
+          <div class="progress-container">
+            <!-- <div class="progress"></div> -->
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              class="progress"
+              id="myRange"
+            />
+          </div>
+          <div class="time current">0:00</div>
+        </div>
+      </div>
+    </main>
+    <div class="container">
+      <footer id="footer">
+        <div class="data">2022</div>
+        <div class="git-link">
+          <div>
+            <a href="https://github.com/Hopechka" target="_blank"
+              ><img src="images/github_logo.png" alt="github_logo"
+            /></a>
+          </div>
+          <div>
+            <a href="https://github.com/Hopechka" target="_blank"
+              ><span>Hopechka</span></a
+            >
+          </div>
+        </div>
+        <div class="school-link">
+          <a href="https://rs.school/js-stage0/" target="_blank"
+            ><img src="images/rs_school_js.svg" alt="rs_school_js logo"
+          /></a>
+        </div>
+      </footer>
+    </div>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>
