@@ -1,0 +1,864 @@
+:root {
+  --another-font: 'Merriweather', serif;
+  --gold-color: #bdae82;
+  --font20: 20px;
+}
+/*
+* {
+  outline: 1px solid red;
+}*/
+
+body {
+  /* border: 2px solid red; */
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: black;
+  /* overflow-x: hidden; */
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 2em;
+  color: #ffffff;
+}
+
+#container {
+  /* border: 2px solid green; */
+  width: 100%;
+  box-sizing: border-box;
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+}
+header,
+main,
+footer {
+  flex: 1;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+main > section {
+  flex: 1;
+}
+/* Навбар  */
+
+header {
+  background: url(../pictures/hero-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-origin: border-box;
+  position: relative;
+}
+.header-wraper {
+  height: 910px;
+}
+input#menu__toggle {
+  display: none;
+}
+
+.navbar {
+  height: 90px;
+  margin: 0 18px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 31px;
+}
+svg.logo {
+  flex: 1;
+}
+
+.nav {
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.nav > li {
+  list-style-type: none;
+  display: inline;
+  padding-left: 30px;
+}
+.nav li a {
+  text-decoration: none;
+  font-size: var(--font20);
+  color: #fff;
+}
+.nav li a:hover {
+  color: var(--gold-color);
+}
+
+ul.lang-link {
+  margin: 0;
+  padding: 0;
+}
+.lang-link li {
+  list-style-type: none;
+  display: inline;
+  font-size: var(--font20);
+}
+.lang-link li:nth-child(2) {
+  padding: 0 8px 0 8px;
+}
+.lang-link li a {
+  text-decoration: none;
+  font-size: var(--font20);
+}
+/*a.en {
+  color: var(--gold-color);
+}*/
+a.ru,
+a.en {
+  color: #fff;
+}
+a.ru.lang-select.active,
+a.en.lang-select.active {
+  color: var(--gold-color);
+}
+.lang-link li a:hover {
+  color: var(--gold-color);
+}
+
+/* прячем input checkbox */
+input[type='checkbox'] {
+  display: none;
+}
+
+/* стили для метки */
+label {
+  cursor: default;
+  font-weight: normal;
+  vertical-align: middle;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+label:hover {
+  color: var(--gold-color);
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+/* формируем внешний вид чекбокса в псевдоэлементе before */
+label:before {
+  content: url(../images/themes/sun.svg);
+  /*  display: inline-block; 
+  position: relative; 
+  text-align: center;
+  text-indent: 0px;
+  border-image: initial;
+  vertical-align: middle;*/
+}
+
+/* вариации внешнего вида в зав-ти от статуса checkbox */
+/* checked */
+input:checked + label:before {
+  content: url(../images/themes/moon.svg);
+}
+
+/* Карточка фотографа  */
+.hero {
+  height: 820px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+.hero-wrap {
+  width: 500px;
+  margin-top: 195px;
+  margin-left: 80px;
+}
+
+h1 {
+  font-family: var(--another-font);
+  font-size: 60px;
+  margin-bottom: 60px;
+}
+.hero-wrap div p {
+  font-size: var(--font20);
+  padding-right: 30px;
+  margin-bottom: 30px;
+}
+.button-hero {
+  background: var(--gold-color);
+  width: 220px;
+  height: 55px;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: var(--font20);
+  border: none;
+  transition: all 0.5s ease-in-out;
+}
+.button-hero:hover {
+  color: white;
+}
+
+/* Заголовок с линиями по бокам  */
+
+h2 {
+  font-size: 40px;
+  text-align: center;
+  font-family: var(--another-font);
+  color: var(--gold-color);
+  padding: 22px 0;
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+h2::before,
+h2::after {
+  content: '';
+  background: var(--gold-color);
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 20%;
+}
+h2::before {
+  right: 20px;
+  margin-left: -50%;
+}
+h2::after {
+  left: 20px;
+  margin-right: -50%;
+}
+
+/* Карточки со скилами  */
+.skills-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px;
+}
+.skills-cards {
+  flex-basis: 25%;
+  align-self: center;
+  text-align: center;
+}
+.skills-cards p {
+  text-align: center;
+}
+.skills-cards img {
+  margin-bottom: 30px;
+}
+h4 {
+  font-size: var(--font20);
+  line-height: 2em;
+  margin: 12px 0;
+}
+
+/* Карусель для секции портфолио  */
+
+.carousel ul {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.carousel li {
+  display: inline-block;
+}
+.button {
+  width: 220px;
+  height: 55px;
+  margin: 0 5px;
+  color: var(--gold-color);
+  border: 2px solid var(--gold-color);
+  background: none;
+  font-size: var(--font20);
+  line-height: 2em;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+.button:hover {
+  color: white;
+}
+.portfolio-btn.active {
+  color: #000;
+  background-color: var(--gold-color);
+}
+/* Кнопка с эффектом Ripple Button */
+
+.portfolio-btn:focus {
+  outline: none;
+}
+
+.portfolio-btn .circle {
+  position: absolute;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 0.5s ease-out;
+}
+.portfolio-btn.light-theme .circle {
+  background-color: black;
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+/* Фотографии портфолио  */
+
+.content-photo {
+  margin: 60px 0 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 25px;
+}
+
+.content-photo-img {
+  flex-basis: 31.3333%;
+  box-sizing: border-box;
+}
+.content-photo-img img {
+  width: 100%;
+}
+
+.video h2 {
+  margin-top: 75px;
+}
+
+/* Фотография видео в video section  */
+
+.video-pic {
+  background: url(../pictures/video-player.jpg) no-repeat;
+  background-size: auto 100%;
+  background-origin: border-box;
+  background-position: center center;
+  position: relative;
+  height: 705px;
+  margin: 0 20px;
+}
+.video-pic svg {
+  position: relative;
+  left: 42%;
+  top: 42%;
+  width: 18%;
+  height: 18%;
+}
+
+/* Карточки в price section  */
+
+.price-card-wraper {
+  margin: 0 20px 100px;
+  display: flex;
+  gap: 25px;
+}
+
+.card-price {
+  width: 450px;
+  height: 505px;
+  border: 3px solid var(--gold-color);
+  box-sizing: border-box;
+}
+
+h3 {
+  font-family: var(--another-font);
+  font-size: 28px;
+  line-height: 2em;
+  text-align: center;
+  margin: 0;
+  margin-top: 43px;
+}
+.card-price p {
+  font-family: var(--another-font);
+  font-size: 24px;
+  line-height: 2em;
+  text-align: center;
+  color: var(--gold-color);
+  margin: 20px 0;
+}
+.card-price ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-bottom: 40px;
+}
+.card-price li {
+  text-align: center;
+}
+.card-price div {
+  text-align: center;
+}
+.button.price,
+.button.message {
+  background-color: var(--gold-color);
+  color: black;
+}
+
+.button.price:hover,
+.button.message:hover {
+  color: white;
+}
+/* Задний фон в contacts section  */
+
+.contacts-wraper {
+  background: url(../pictures/contacts-bg.jpg) no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-origin: border-box;
+  position: relative;
+  height: 700px;
+  /* width: 1400px; */
+}
+
+/* Форма для контактов  */
+
+.contact-header {
+  font-size: 40px;
+  line-height: 2em;
+  font-family: var(--another-font);
+  color: var(--gold-color);
+  margin-bottom: 40px;
+  padding-top: 60px;
+  margin-top: 0;
+  text-align: left;
+  box-sizing: border-box;
+}
+.contacts-block {
+  float: right;
+}
+.comment {
+  /* Это поле в котором все формы */
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Выровнила поля, чтобы текст был слева и ровно */
+.field {
+  padding-bottom: 20px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+input,
+textarea {
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--gold-color);
+  border: 2px solid var(--gold-color);
+  width: 450px;
+  box-sizing: border-box;
+  font-size: var(--font20);
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+input:focus,
+textarea:focus {
+  box-decoration-break: none;
+}
+
+input {
+  height: 50px;
+}
+
+textarea {
+  height: 100px;
+  padding-top: 15px;
+  padding-left: 1px;
+}
+::-webkit-input-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+  padding-left: 15px;
+} /* webkit */
+::-moz-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+  padding-left: 15px;
+} /* Firefox 19+ */
+:-moz-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+  padding-left: 15px;
+} /* Firefox 18- */
+:-ms-input-placeholder {
+  color: var(--gold-color);
+  opacity: 1;
+  padding-left: 15px;
+} /* IE */
+
+/* Подвал (footer)*/
+
+.footer-wraper {
+  margin: 61px 0 50px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.footer li {
+  display: inline;
+  padding: 0 10px;
+}
+
+.block1,
+.block2 {
+  font-size: var(--font20);
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--gold-color);
+}
+
+/* Активность для всех кнопок(меняют цвет при наведении) */
+svg:hover {
+  fill: var(--gold-color);
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  body {
+    max-width: 768px;
+    overflow-x: none;
+  }
+  .header-wraper {
+    height: 590px;
+    margin: 0 60px;
+  }
+  header {
+    background-position: left;
+  }
+  div.lang {
+    flex-grow: 1;
+  }
+  .navbar {
+    width: 88%;
+    text-align: right;
+    /* gap: 0; */
+    margin-left: 0;
+  }
+
+  /* -------Меню гамбургер------- */
+  .hamburger {
+    position: absolute;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 50px;
+    height: 28px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 3;
+  }
+
+  .line {
+    width: 80%;
+    height: 2px;
+    background: white;
+    margin: 3px 0;
+    z-index: 15;
+    transition: all 0.3s ease-in-out;
+  }
+  .hamburger:hover .line {
+    background: var(--gold-color);
+  }
+
+  .hamburger.open .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.open .line2 {
+    opacity: 0;
+  }
+
+  .hamburger.open .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  #menu-nav.close {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 620px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 134px;
+    padding-left: 127px;
+    list-style: none;
+    background-color: black;
+    z-index: 2;
+    overflow-y: auto;
+    transition: 1s all;
+    /* visibility: visible; */
+  }
+  #menu-nav {
+    display: none;
+    /* visibility: hidden;
+    transition: 1s all;
+    position: absolute;
+    top: 0;
+    right: -300px;
+    padding-top: 134px;
+    padding-left: 127px; */
+  }
+  .nav li a {
+    font-size: 35px;
+    line-height: 73px;
+  }
+  .nav li {
+    padding-left: 0;
+  }
+  .nav-item {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    transition-duration: 0.25s;
+    text-align: left;
+  }
+  .nav-item a:hover {
+    color: var(--gold-color);
+  }
+  .nav-item.light-theme {
+    color: black;
+  }
+
+  /* -------- */
+
+  .hero {
+    max-height: 768px;
+  }
+
+  .hero-wrap {
+    width: 390px;
+    margin-top: 79px;
+    margin-left: 0;
+  }
+
+  h1 {
+    font-size: 32px;
+    padding: 16px 0;
+    margin: 0;
+  }
+  .hero-wrap div p {
+    line-height: 24px;
+    padding: 0;
+    margin-bottom: 60px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 80px;
+    padding: 22px 0;
+    margin: 58px 0 28px;
+  }
+  h2::before,
+  h2::after {
+    content: '';
+    background: var(--gold-color);
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 15%;
+  }
+  h2::before {
+    margin-left: -30%;
+  }
+  h2::after {
+    margin-right: -30%;
+  }
+  .skills-cards img {
+    margin-bottom: 4px;
+  }
+  .video h2 {
+    margin-top: 45px;
+  }
+  .video-pic {
+    height: 418px;
+    margin: 0;
+  }
+  .video-pic svg {
+    left: 41%;
+    top: 41%;
+  }
+
+  .carousel ul {
+    flex-wrap: wrap;
+    margin: 0 100px;
+    gap: 5px;
+    padding: 0;
+  }
+  .carousel li {
+    flex-basis: content;
+  }
+  .button {
+    margin: 0;
+  }
+
+  .content-photo {
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    margin: 60px 0px 0;
+  }
+
+  .skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 60px 65px 60px;
+    justify-content: center;
+    height: 100%;
+    gap: 60px;
+  }
+  .skills-cards {
+    flex-basis: 45%;
+  }
+  .skills-cards p {
+    line-height: 22px;
+  }
+
+  .price-card-wraper {
+    margin: 0 20px 81px;
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .card-price {
+    align-self: center;
+    width: 420px;
+  }
+
+  .contacts-wraper {
+    height: 600px;
+    background-position: top;
+    /* margin-top: 81px; */
+  }
+  .contacts-block {
+    float: none;
+    text-align: center;
+    margin: 0;
+  }
+
+  .contact-header {
+    text-align: center;
+    font-size: 32px;
+    line-height: 2em;
+    padding-top: 60px;
+  }
+  .field {
+    margin-right: 0;
+  }
+  .footer-wraper {
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    gap: 5px;
+  }
+  div.footer-wraper {
+    margin: 21px 0 25px 0;
+  }
+  div.block3 {
+    margin-top: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  input,
+  textarea {
+    width: 80%;
+  }
+  .card-price {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body {
+    max-width: 425px;
+  }
+  .hamburger {
+    right: 20px;
+  }
+
+  .hero-wrap {
+    width: 100%;
+    margin-top: 109px;
+    margin-left: 0;
+  }
+
+  header {
+    background-position: center center;
+  }
+  .header-wraper {
+    margin: 0 20px;
+  }
+  div.lang {
+    flex-shrink: 1;
+  }
+  .navbar {
+    text-align: center;
+    gap: 0;
+    width: 77%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .card-price {
+    height: 580px;
+  }
+  .button.price {
+    width: 80%;
+  }
+}
+body.light-theme {
+  background: white;
+}
+
+#skills.light-theme,
+#portfolio.light-theme,
+#video.light-theme,
+#price.light-theme,
+h2.light-theme {
+  background: white;
+  color: black;
+}
+h2.light-theme::before,
+h2.light-theme::after,
+#footer.light-theme,
+#contacts.light-theme {
+  background: black;
+}
+.portfolio-btn.light-theme {
+  color: black;
+}
+/*.portfolio-btn.light-theme:hover*/
+.portfolio-btn.light-theme.active {
+  color: white;
+  background-color: var(--gold-color);
+}
+
+#menu-nav.close.light-theme {
+  background: white;
+}
+
+.hamburger.open .line1.light-theme {
+  background: black;
+}
+
+.hamburger.open .line3.light-theme {
+  background: black;
+}
